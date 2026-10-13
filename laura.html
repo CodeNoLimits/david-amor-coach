@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Kit de partage Laura</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--night:#1b2230;--ink:#242b3a;--text:#2b303b;--muted:#5b6170;--sand:#f7f1e7;--card:#fffdf9;--line:#e6dccb;--gold:#b07d33;--wa:#1f8f4e}
+*{box-sizing:border-box;margin:0}
+body{font:400 17px/1.6 "Hanken Grotesk",system-ui,sans-serif;color:var(--text);background:var(--sand)}
+h1,h2{font-family:Fraunces,Georgia,serif;font-weight:600;color:var(--ink);line-height:1.2}
+.wrap{max-width:760px;margin:0 auto;padding:36px 16px 80px}
+h1{font-size:34px;margin:6px 0 10px}
+h2{font-size:24px;margin:40px 0 12px}
+.kicker{font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:var(--gold)}
+p.lead{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:12px}
+.card h3{font:600 15px "Hanken Grotesk",sans-serif;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.txt{white-space:pre-wrap;font-size:16px}
+button,.dl{display:inline-flex;align-items:center;gap:8px;margin-top:12px;background:var(--night);color:#fff;border:0;border-radius:999px;padding:10px 18px;font:600 15px "Hanken Grotesk",sans-serif;cursor:pointer;text-decoration:none}
+button.ok{background:var(--wa)}
+button:focus-visible,.dl:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.link{font:600 17px ui-monospace,Menlo,monospace;word-break:break-all;color:var(--ink)}
+.vids{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+@media(max-width:560px){.vids{grid-template-columns:1fr}}
+.vids video{width:100%;border-radius:12px;background:var(--night);display:block}
+ul{padding-left:20px}
+li+li{margin-top:6px}
+</style>
+</head>
+<body><div class="wrap">
+<div class="kicker">Kit de partage</div>
+<h1>Bonjour Laura 👋</h1>
+<p class="lead">Tout ce qu'il faut pour partager la page de David : ton lien personnel, les vidéos à publier et des textes prêts à copier. Adapte-les avec tes mots, c'est toujours mieux.</p>
+
+<h2>1. Ton lien personnel</h2>
+<div class="card">
+  <p class="link" id="mylink">…</p>
+  <button data-copy="mylink">Copier mon lien</button>
+  <p style="margin-top:12px;color:var(--muted);font-size:15px">Quand quelqu'un passe par ce lien et écrit à David, le message WhatsApp indique automatiquement « de la part de Laura ». C'est comme ça qu'on sait qui vient de ta part.</p>
+</div>
+
+<h2>2. Les vidéos à publier</h2>
+<div class="vids">
+  <div class="card"><h3>Présentation · format vertical</h3><video controls playsinline preload="none" poster="videos/presentation-9x16.jpg" src="videos/presentation-9x16.mp4"></video><a class="dl" href="videos/presentation-9x16.mp4" download>Télécharger</a><p style="font-size:14px;color:var(--muted);margin-top:8px">Stories, Reels, statut WhatsApp, TikTok.</p></div>
+  <div class="card"><h3>« Vous vous reconnaissez ? »</h3><video controls playsinline preload="none" poster="videos/reel-reconnais-9x16.jpg" src="videos/reel-reconnais-9x16.mp4"></video><a class="dl" href="videos/reel-reconnais-9x16.mp4" download>Télécharger</a><p style="font-size:14px;color:var(--muted);margin-top:8px">Vidéo courte, idéale en Reel.</p></div>
+  <div class="card"><h3>Présentation · format horizontal</h3><video controls playsinline preload="none" poster="videos/presentation-16x9.jpg" src="videos/presentation-16x9.mp4"></video><a class="dl" href="videos/presentation-16x9.mp4" download>Télécharger</a><p style="font-size:14px;color:var(--muted);margin-top:8px">Facebook, groupes, YouTube.</p></div>
+</div>
+
+<h2>3. Textes prêts à copier</h2>
+<div class="card"><h3>Post Instagram / Facebook</h3>
+<p class="txt" id="t1">Vous traversez une période où tout se mélange ? La fatigue, les doutes, une décision qu'on repousse…
+
+Je connais David depuis longtemps : c'est quelqu'un qui écoute vraiment, qui dit les choses franchement mais avec beaucoup de bienveillance, et qui donne des conseils concrets.
+
+Il propose désormais des séances de coaching de vie, en français, en visio ou par téléphone. Le premier appel de 15 minutes est offert.
+
+👉 Toutes les infos ici : {LIEN}</p>
+<button data-copy="t1">Copier le texte</button></div>
+
+<div class="card"><h3>Statut WhatsApp / story</h3>
+<p class="txt" id="t2">Besoin d'un regard clair et bienveillant ? Premier appel de coaching offert avec David 👇
+{LIEN}</p>
+<button data-copy="t2">Copier le texte</button></div>
+
+<div class="card"><h3>Message privé à une amie</h3>
+<p class="txt" id="t3">Coucou, je pensais à toi. Je connais quelqu'un de très bien qui fait du coaching de vie, David. Il écoute vraiment et il a de très bons conseils. Le premier appel est offert, sans engagement. Si ça te parle, regarde sa page : {LIEN}</p>
+<button data-copy="t3">Copier le texte</button></div>
+
+<div class="card"><h3>Groupe de discussion</h3>
+<p class="txt" id="t4">Bonjour à toutes et à tous, je partage une belle adresse : David propose du coaching de vie en français (visio ou téléphone) pour les périodes de stress, les questions de famille, de couple ou les décisions difficiles. Premier appel de 15 minutes offert. {LIEN}</p>
+<button data-copy="t4">Copier le texte</button></div>
+
+<h2>4. Quelques conseils</h2>
+<div class="card"><ul>
+  <li>Un post par semaine suffit, en alternant les deux vidéos.</li>
+  <li>En story, ajoute le lien avec l'autocollant « Lien ».</li>
+  <li>Dans les groupes, vérifie que les règles autorisent ce genre de partage.</li>
+  <li>Si on te demande comment payer : virement en euros, David envoie les coordonnées après l'appel découverte.</li>
+</ul></div>
+</div>
+
+<script>
+(function(){
+  var link = location.origin + location.pathname.replace(/laura(\.html)?$/, '') + '?ref=laura';
+  document.getElementById('mylink').textContent = link;
+  document.querySelectorAll('.txt').forEach(function(p){ p.textContent = p.textContent.replace('{LIEN}', link); });
+  document.querySelectorAll('button[data-copy]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var t = document.getElementById(b.dataset.copy).textContent, label = b.textContent;
+      var done = function(){ b.textContent = 'Copié ✓'; b.classList.add('ok'); setTimeout(function(){ b.textContent = label; b.classList.remove('ok'); }, 1800); };
+      if (navigator.clipboard) navigator.clipboard.writeText(t).then(done, function(){ prompt('Copie ce texte :', t); });
+      else prompt('Copie ce texte :', t);
+    });
+  });
+})();
+</script>
+</body>
+</html>

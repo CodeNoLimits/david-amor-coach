@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>David Amor · Coach de vie</title>
+<meta name="description" content="Coaching de vie en français, en visio ou par téléphone. Un regard franc, bienveillant et concret quand tout se mélange. Premier appel de 15 minutes offert.">
+<meta property="og:title" content="David Amor · Coach de vie">
+<meta property="og:description" content="Quand tout se mélange, un regard clair. Premier appel de 15 minutes offert.">
+<meta property="og:image" content="https://codenolimits.github.io/david-amor-coach/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1b2230">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--night:#1b2230;--ink:#242b3a;--text:#2b303b;--muted:#5b6170;--sand:#f7f1e7;--card:#fffdf9;--line:#e6dccb;--gold:#b07d33;--gold-soft:#f1e3c8;--wa:#1f8f4e}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:400 17px/1.6 "Hanken Grotesk",system-ui,sans-serif;color:var(--text);background:var(--sand);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.15;color:var(--ink)}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--wa);color:#fff;text-decoration:none;font-weight:600;padding:15px 24px;border-radius:999px;font-size:17px;box-shadow:0 6px 20px rgba(31,143,78,.25);transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.btn svg{width:22px;height:22px;flex:none}
+header.top{position:sticky;top:0;z-index:5;background:rgba(247,241,231,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:Fraunces,serif;font-size:20px;font-weight:600;color:var(--ink);text-decoration:none}
+.brand small{display:block;font:500 12px "Hanken Grotesk",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.top .btn{padding:10px 18px;font-size:15px;box-shadow:none}
+.hero{padding:56px 0 40px}
+.hero .wrap{display:grid;gap:36px;align-items:center}
+.kicker{font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:var(--gold)}
+.hero h1{font-size:clamp(36px,6vw,58px);margin:12px 0 18px}
+.hero p.lead{font-size:19px;color:var(--muted);max-width:34em;margin-bottom:26px}
+.hero .note{font-size:15px;color:var(--muted);margin-top:14px}
+.vid{border-radius:20px;overflow:hidden;background:var(--night);box-shadow:0 20px 50px rgba(27,34,48,.22)}
+.vid video{display:block;width:100%;height:auto}
+.vid .v169{display:none}
+@media(min-width:880px){.hero .wrap{grid-template-columns:1.05fr 1fr}.vid .v916{display:none}.vid .v169{display:block}}
+section{padding:56px 0}
+section h2{font-size:clamp(28px,4.4vw,40px);margin-bottom:12px}
+section .intro{color:var(--muted);max-width:40em;margin-bottom:30px}
+.grid{display:grid;gap:16px}
+@media(min-width:700px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+.card h3{font-size:21px;margin-bottom:8px}
+.card p{color:var(--muted)}
+.dark{background:var(--night);color:#e9e4da}
+.dark h2,.dark h3{color:#fff}
+.dark .intro,.dark .card p{color:#b9b4aa}
+.dark .card{background:#232b3b;border-color:#323b4d}
+.num{font-family:Fraunces,serif;font-size:34px;color:var(--gold);line-height:1;margin-bottom:10px}
+.price{font-family:Fraunces,serif;font-size:40px;color:var(--ink);margin:6px 0 4px}
+.price span{font:500 16px "Hanken Grotesk",sans-serif;color:var(--muted)}
+.card.feat{border:2px solid var(--gold);background:#fffaf1}
+.tag{display:inline-block;background:var(--gold-soft);color:#7a5418;font-size:13px;font-weight:600;padding:3px 10px;border-radius:999px}
+.pay{display:flex;gap:16px;align-items:flex-start;margin-top:22px}
+.pay svg{flex:none;width:28px;height:28px;color:var(--gold)}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+details+details{margin-top:10px}
+summary{cursor:pointer;font-weight:600;color:var(--ink)}
+details p{margin-top:10px;color:var(--muted)}
+.final{text-align:center}
+.final p{margin:0 auto 26px;max-width:32em;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0 90px;font-size:14px;color:var(--muted)}
+footer p+p{margin-top:8px}
+.float{position:fixed;right:16px;bottom:16px;z-index:6}
+@media(min-width:880px){.float{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#">David Amor<small>Coach de vie</small></a>
+  <a class="btn js-wa" href="https://wa.me/972584921492">Premier appel offert</a>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <div>
+    <div class="kicker">Coaching de vie · en français</div>
+    <h1>Quand tout se mélange, un regard clair.</h1>
+    <p class="lead">La fatigue, les doutes, les décisions qu'on repousse… Parfois, il faut juste quelqu'un qui écoute vraiment et qui aide à y voir clair. Séances en visio ou par téléphone, où que vous soyez.</p>
+    <a class="btn js-wa" href="https://wa.me/972584921492"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Réserver mon appel offert</a>
+    <p class="note">Premier appel de 15 minutes, sans engagement.</p>
+  </div>
+  <div class="vid">
+    <video class="v916" controls playsinline preload="none" poster="videos/presentation-9x16.jpg" aria-label="Vidéo de présentation de David Amor, coach de vie"><source src="videos/presentation-9x16.mp4" type="video/mp4"></video>
+    <video class="v169" controls playsinline preload="none" poster="videos/presentation-16x9.jpg" aria-label="Vidéo de présentation de David Amor, coach de vie"><source src="videos/presentation-16x9.mp4" type="video/mp4"></video>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Vous vous reconnaissez ?</h2>
+  <p class="intro">Pas besoin d'aller mal pour se faire accompagner. Il suffit de sentir que, seul, ça n'avance plus.</p>
+  <div class="grid g2">
+    <div class="card"><h3>Fatigue et stress</h3><p>Une période lourde, le sentiment de tout porter seul, de ne plus avoir de place pour soi.</p></div>
+    <div class="card"><h3>Famille et couple</h3><p>Une relation qui coince, un lien à réparer, une place à retrouver à la maison.</p></div>
+    <div class="card"><h3>Décisions et projets</h3><p>Un choix qu'on repousse, un projet qui n'avance pas, le travail, la subsistance.</p></div>
+    <div class="card"><h3>Confiance en soi</h3><p>Retrouver sa valeur, sa joie et l'élan pour avancer, un pas après l'autre.</p></div>
+  </div>
+</div></section>
+
+<section class="dark"><div class="wrap">
+  <h2>Qui est David ?</h2>
+  <p class="intro">Depuis des années, ses proches et ses amis l'appellent quand ça ne va pas. Il les écoute et les conseille, gratuitement, par amitié. Aujourd'hui, il ouvre cet accompagnement à tous ceux qui en ont besoin, depuis Jérusalem.</p>
+  <div class="grid g3">
+    <div class="card"><div class="num">01</div><h3>Franc et bienveillant</h3><p>Il dit les choses clairement, avec douceur, en s'adaptant à la sensibilité de chacun.</p></div>
+    <div class="card"><div class="num">02</div><h3>La confiance et la joie</h3><p>Avancer avec confiance et avec joie, plutôt qu'avec la peur et la culpabilité.</p></div>
+    <div class="card"><div class="num">03</div><h3>Du concret</h3><p>Chaque séance se termine par des actions simples, à mettre en place dès le lendemain.</p></div>
+  </div>
+</div></section>
+
+<section id="tarifs"><div class="wrap">
+  <h2>Comment ça se passe</h2>
+  <p class="intro">Vous écrivez à David sur WhatsApp. Il vous répond pour fixer un premier appel. Ensuite, vous choisissez librement.</p>
+  <div class="grid g3">
+    <div class="card"><span class="tag">Pour commencer</span><h3 style="margin-top:12px">Appel découverte</h3><div class="price">Offert</div><p>15 minutes pour faire connaissance et voir si l'accompagnement vous convient.</p></div>
+    <div class="card"><span class="tag">À la séance</span><h3 style="margin-top:12px">Séance individuelle</h3><div class="price">60 € <span>/ 1 heure</span></div><p>En visio ou par téléphone, au moment qui vous arrange.</p></div>
+    <div class="card feat"><span class="tag">Recommandé</span><h3 style="margin-top:12px">Accompagnement</h3><div class="price">220 € <span>/ 4 séances</span></div><p>Un mois pour avancer vraiment sur un sujet, à raison d'une séance par semaine.</p></div>
+  </div>
+  <div class="pay">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h3"/></svg>
+    <p><strong>Paiement simple, en euros.</strong> Par virement bancaire (SEPA) vers un compte en euros. Les coordonnées vous sont envoyées après l'appel découverte, avec la référence à indiquer.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Questions fréquentes</h2>
+  <details><summary>Comment se passe une séance ?</summary><p>Vous parlez de ce qui vous occupe, David écoute, pose les bonnes questions et vous aide à y voir clair. Vous repartez avec quelques actions concrètes.</p></details>
+  <details><summary>En visio ou par téléphone ?</summary><p>Les deux sont possibles, par WhatsApp. Vous n'avez rien à installer de plus.</p></details>
+  <details><summary>Est-ce que c'est confidentiel ?</summary><p>Oui. Ce que vous partagez reste entre vous et David.</p></details>
+  <details><summary>Est-ce une thérapie ?</summary><p>Non. Le coaching de vie est un accompagnement. Il ne remplace ni un médecin, ni un psychologue, ni un traitement. En cas de détresse, contactez un professionnel de santé ou le 15 (en France).</p></details>
+  <details><summary>Comment payer ?</summary><p>Par virement en euros, après l'appel découverte offert. Vous recevez les coordonnées et la référence par WhatsApp.</p></details>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <h2>Faites le premier pas</h2>
+  <p>Un message suffit. David vous répond rapidement pour fixer votre appel découverte offert.</p>
+  <a class="btn js-wa" href="https://wa.me/972584921492">Écrire à David sur WhatsApp</a>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <p>David Amor · Coach de vie · Jérusalem · séances en français, en visio ou par téléphone.</p>
+  <p>Le coaching de vie ne remplace pas un avis médical ou psychologique.</p>
+</div></footer>
+
+<a class="btn float js-wa" href="https://wa.me/972584921492" aria-label="Écrire à David sur WhatsApp">WhatsApp</a>
+
+<script>
+(function(){
+  var ref = '';
+  try { ref = new URLSearchParams(location.search).get('ref') || ''; } catch(e) {}
+  ref = ref.replace(/[^\w-]/g, '').slice(0, 30).toLowerCase();
+  try { if (ref) localStorage.setItem('ref', ref); else ref = localStorage.getItem('ref') || ''; } catch(e) {}
+  var who = ref ? ' (de la part de ' + ref.charAt(0).toUpperCase() + ref.slice(1).split('-')[0] + ')' : '';
+  var msg = 'Bonjour David, j\'ai vu votre page de coach de vie' + who + '. J\'aimerais réserver mon appel découverte offert.';
+  var url = 'https://wa.me/972584921492?text=' + encodeURIComponent(msg);
+  document.querySelectorAll('.js-wa').forEach(function(a){ a.href = url; a.target = '_blank'; a.rel = 'noopener'; });
+})();
+</script>
+</body>
+</html>
