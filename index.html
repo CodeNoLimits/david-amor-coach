@@ -10,6 +10,7 @@
 <meta property="og:image" content="https://codenolimits.github.io/david-amor-coach/og.jpg">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#acd3fd">
+<script>document.documentElement.classList.add("js")</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
@@ -130,6 +131,41 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;h
 footer{padding:30px 0 40px;font-size:15px;color:var(--ink-2)}
 footer p+p{margin-top:6px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.wa{transition:none}}
+
+/* ===== version « wow » (22/10) : lumière vivante, repères, étapes, apparitions, barre mobile ===== */
+.hero{position:relative;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:-20%;z-index:-1;background:radial-gradient(40% 35% at 25% 30%,rgba(255,255,255,.55),transparent 70%),radial-gradient(35% 30% at 70% 70%,rgba(201,154,62,.18),transparent 70%);animation:drift 18s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.12;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+@keyframes drift{to{transform:translate(4%,-3%) scale(1.08)}}
+.refbadge{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;padding:7px 14px 7px 10px;border-radius:999px;background:#fff;box-shadow:0 6px 22px rgba(15,39,71,.12);font:700 14px/1 var(--display);color:var(--ink)}
+.refbadge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--stone)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px;padding:0;list-style:none}
+.chips li{padding:8px 13px;border-radius:999px;background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font:600 14.5px/1 var(--display);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(15,39,71,.08)}
+.hero h1 span:nth-child(3){background:linear-gradient(100deg,var(--ink) 20%,#2a5a96 60%,var(--ink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.wa{box-shadow:0 10px 26px rgba(18,140,74,.28)}
+.steps{counter-reset:s;list-style:none;padding:0;display:grid;gap:18px;margin-top:10px}
+@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.steps li{position:relative;padding:26px 24px 24px;border-radius:22px;background:var(--mist);box-shadow:inset 0 0 0 1px #dfe9f6}
+.steps li::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;margin-bottom:14px;background:var(--ink);color:#fff;font:800 17px/1 var(--display)}
+.steps h3{font-size:23px;margin-bottom:6px;letter-spacing:-.015em}
+.steps p{color:var(--ink-2)}
+.voices li{background:#fff;border-left:0;padding:20px 22px;border-radius:18px;box-shadow:0 8px 24px rgba(15,39,71,.06),inset 4px 0 0 var(--sky-d)}
+.quote{background:radial-gradient(60% 80% at 80% 20%,#1d3d6b,transparent),var(--ink)}
+.quote blockquote{background:linear-gradient(100deg,#fff 40%,var(--sky) 75%,#e9cf93);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rv{opacity:1}
+@media(prefers-reduced-motion:no-preference){.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}.js .rv.in{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.hero::before{animation:none}}
+.stickycta{display:none}
+@media(max-width:760px){
+  .stickycta{display:flex;position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:20;justify-content:center;transform:translateY(140%);transition:transform .35s ease}
+  .stickycta.on{transform:none}
+  .stickycta .wa{width:100%;justify-content:center}
+  footer{padding-bottom:110px}
+}
+.prices .row--main{margin:10px -18px 0;padding:24px 18px;border-radius:18px;border-bottom:0;background:#fff;box-shadow:0 14px 40px rgba(15,39,71,.10),inset 0 0 0 2px var(--sky-d)}
+.prices .tag{display:inline-block;margin-bottom:8px;padding:5px 10px;border-radius:999px;background:var(--ink);color:#fff;font:700 12.5px/1 var(--display);letter-spacing:.02em}
+.player{position:relative}
+.player .dur{position:absolute;top:14px;left:14px;z-index:2;padding:6px 11px;border-radius:999px;background:rgba(15,39,71,.78);color:#fff;font:700 13px/1 var(--display);pointer-events:none}
 </style>
 </head>
 <body>
@@ -141,8 +177,10 @@ footer p+p{margin-top:6px}
 <main>
 <section class="hero"><div class="hero-grid">
   <div class="hero-text">
+    <p class="refbadge" id="refbadge" hidden></p>
     <p class="who">David Amor, coach de vie à Jérusalem</p>
     <h1><span>Quand tout</span><span>se mélange,</span><span>un regard clair.</span></h1>
+    <ul class="chips"><li>Français · English · עברית</li><li>Visio ou téléphone</li><li>1er appel de 15 min offert</li></ul>
     <p class="lead">J'écoute vraiment, je dis les choses franchement et avec douceur, et vous repartez avec des actions concrètes. En français, en anglais ou en hébreu, en visio ou par téléphone.</p>
     <a class="wa js-wa" href="https://wa.me/972584921492"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Réserver mon appel offert</a>
     <p class="note">15 minutes pour faire connaissance, sans engagement.</p>
@@ -157,19 +195,28 @@ footer p+p{margin-top:6px}
     <h2>Celui qu'on appelle quand ça ne va pas.</h2>
     <p>Depuis des années, mes proches et mes amis m'appellent dans les moments difficiles. Je les écoute, je les conseille, gratuitement. Aujourd'hui, j'ouvre cet accompagnement à tous ceux qui en ont besoin.</p>
   </div>
-  <div class="player">
+  <div class="player"><span class="dur" aria-hidden="true">Vidéo · 1 min 30</span>
     <video class="v916" controls playsinline preload="none" poster="videos/presentation-9x16.jpg" aria-label="Vidéo de présentation du coaching de David Amor"><source src="videos/presentation-9x16.mp4" type="video/mp4"></video>
     <video class="v169" controls playsinline preload="none" poster="videos/presentation-16x9.jpg" aria-label="Vidéo de présentation du coaching de David Amor"><source src="videos/presentation-16x9.mp4" type="video/mp4"></video>
   </div>
 </div></section>
 
+<section class="block"><div class="wrap">
+  <h2 class="rv">Comment ça se passe</h2>
+  <ol class="steps">
+    <li class="rv"><h3>Un message</h3><p>Vous m'écrivez sur WhatsApp. Je vous réponds pour fixer votre appel découverte.</p></li>
+    <li class="rv"><h3>15 minutes offertes</h3><p>On fait connaissance, sans engagement, en visio ou par téléphone.</p></li>
+    <li class="rv"><h3>Des actions concrètes</h3><p>Si on continue, chaque séance se termine par des actions simples, à faire dès le lendemain.</p></li>
+  </ol>
+</div></section>
+
 <section class="block voices"><div class="wrap">
-  <h2>Vous vous reconnaissez ?</h2>
+  <h2 class="rv">Vous vous reconnaissez ?</h2>
   <ul>
-    <li>«&nbsp;Je porte tout, tout seul, et personne ne m'écoute vraiment.&nbsp;»</li>
-    <li>«&nbsp;Je tourne en rond sur une décision depuis des semaines.&nbsp;»</li>
-    <li>«&nbsp;À la maison, quelque chose coince et je ne sais pas par où commencer.&nbsp;»</li>
-    <li>«&nbsp;Je ne crois plus assez en moi pour avancer.&nbsp;»</li>
+    <li class="rv">«&nbsp;Je porte tout, tout seul, et personne ne m'écoute vraiment.&nbsp;»</li>
+    <li class="rv">«&nbsp;Je tourne en rond sur une décision depuis des semaines.&nbsp;»</li>
+    <li class="rv">«&nbsp;À la maison, quelque chose coince et je ne sais pas par où commencer.&nbsp;»</li>
+    <li class="rv">«&nbsp;Je ne crois plus assez en moi pour avancer.&nbsp;»</li>
   </ul>
   <p class="measure">Pas besoin d'aller mal pour se faire accompagner. Il suffit de sentir que, seul, ça n'avance plus.</p>
 </div></section>
@@ -182,7 +229,7 @@ footer p+p{margin-top:6px}
 </div></section>
 
 <section class="block path"><div class="wrap">
-  <h2>Mon parcours</h2>
+  <h2 class="rv">Mon parcours</h2>
   <ol class="measure">
     <li><div class="when">2004 à 2010, Montréal</div><h3>Psychologie et enseignement</h3><p>Des études de sciences et de psychologie au cégep Saint-Laurent, puis de psychologie et d'enseignement à l'Université de Montréal.</p></li>
     <li><div class="when">2013 à 2015</div><h3>Le terrain</h3><p>La vente, en face-à-face et au téléphone. Des rencontres et des échanges, tous les jours.</p></li>
@@ -192,7 +239,7 @@ footer p+p{margin-top:6px}
 </div></section>
 
 <section class="block how"><div class="wrap">
-  <h2>Ma façon de faire</h2>
+  <h2 class="rv">Ma façon de faire</h2>
   <div class="grid">
     <div><h3>Franc, avec douceur</h3><p>Je dis les choses clairement, en m'adaptant à la sensibilité de chacun.</p></div>
     <div><h3>La confiance et la joie</h3><p>On avance avec confiance et avec joie, plutôt qu'avec la peur et la culpabilité.</p></div>
@@ -201,11 +248,11 @@ footer p+p{margin-top:6px}
 </div></section>
 
 <section class="block prices" id="tarifs"><div class="wrap">
-  <h2>Tarifs</h2>
+  <h2 class="rv">Tarifs</h2>
   <dl>
     <div class="row"><dt>Appel découverte<small>15 minutes pour faire connaissance</small></dt><span class="lead-dots" aria-hidden="true"></span><dd>Offert</dd></div>
     <div class="row"><dt>Séance individuelle<small>1 heure, en visio ou par téléphone</small></dt><span class="lead-dots" aria-hidden="true"></span><dd>60&nbsp;€</dd></div>
-    <div class="row"><dt>Accompagnement<small>4 séances, une par semaine pendant un mois</small></dt><span class="lead-dots" aria-hidden="true"></span><dd>220&nbsp;€</dd></div>
+    <div class="row row--main"><dt><span class="tag">Pour avancer en un mois</span>Accompagnement<small>4 séances, une par semaine pendant un mois</small></dt><span class="lead-dots" aria-hidden="true"></span><dd>220&nbsp;€</dd></div>
   </dl>
   <p class="pay">Paiement par virement bancaire en euros. Je vous envoie les coordonnées après l'appel découverte, avec la référence à indiquer.</p>
 </div></section>
@@ -226,6 +273,7 @@ footer p+p{margin-top:6px}
   <a class="wa js-wa" href="https://wa.me/972584921492">M'écrire sur WhatsApp</a>
 </div></section>
 </main>
+<div class="stickycta" id="stickycta"><a class="wa js-wa" href="https://wa.me/972584921492">Réserver mon appel offert</a></div>
 
 <footer><div class="wrap">
   <p>David Amor, coach de vie à Jérusalem. Séances en visio ou par téléphone.</p>
@@ -242,6 +290,11 @@ footer p+p{margin-top:6px}
   var msg = 'Bonjour David, j\'ai vu votre page de coach de vie' + who + '. J\'aimerais réserver mon appel découverte offert.';
   var url = 'https://wa.me/972584921492?text=' + encodeURIComponent(msg);
   document.querySelectorAll('.js-wa').forEach(function(a){ a.href = url; a.target = '_blank'; a.rel = 'noopener'; });
+  if (ref) { var b = document.getElementById('refbadge'); b.textContent = 'Recommandé par ' + ref.charAt(0).toUpperCase() + ref.slice(1).split('-')[0]; b.hidden = false; }
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' }) : null;
+  document.querySelectorAll('.rv').forEach(function(el){ io ? io.observe(el) : el.classList.add('in'); });
+  var sc = document.getElementById('stickycta'), hero = document.querySelector('.hero'), end = document.querySelector('.end');
+  addEventListener('scroll', function(){ var y = scrollY, h = hero.offsetHeight, e = end.getBoundingClientRect().top < innerHeight; sc.classList.toggle('on', y > h * .8 && !e); }, { passive: true });
 })();
 </script>
 </body>
