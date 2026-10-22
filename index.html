@@ -70,6 +70,7 @@ em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.0
 /* HÉROS : l'aube se lève au fil du défilement */
 .hero{position:relative;height:250svh;background:var(--night);color:#fff}
 .hero__stick{position:sticky;top:0;height:100svh;overflow:hidden}
+.hero__stick::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(to bottom,transparent,rgba(251,248,242,.0));pointer-events:none}
 .hero__stick>img,.hero__stick>canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero__scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,14,34,.78) 0%,rgba(6,14,34,.46) 46%,rgba(6,14,34,0) 76%),linear-gradient(0deg,rgba(6,14,34,.7) 0%,transparent 42%),linear-gradient(180deg,rgba(6,14,34,.45) 0%,transparent 22%)}
 .hero__copy,.hero__two{position:absolute;left:max(20px,calc((100vw - 1200px)/2));right:20px;bottom:clamp(96px,15svh,150px);max-width:min(760px,100% - 20px);will-change:transform,opacity}
@@ -123,16 +124,15 @@ section{position:relative;scroll-margin-top:100px}
 .portrait figcaption{position:absolute;z-index:2;left:18px;bottom:18px;padding:9px 13px;border-radius:6px;background:rgba(10,22,48,.72);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font:500 12.5px/1 var(--body);letter-spacing:.06em}
 .intro h2{margin:18px 0 26px;font-size:clamp(36px,4.6vw,68px)}
 .intro p{font-size:clamp(17px,1.5vw,20px);max-width:34em}
-.player{position:relative;margin-top:34px;border-radius:10px;overflow:hidden;background:var(--night);box-shadow:0 22px 36px -26px rgba(10,22,48,.55)}
+.player{position:relative;margin-top:34px;border-radius:10px;overflow:hidden;background:radial-gradient(70% 90% at 85% 100%,rgba(201,153,58,.42),transparent 70%),linear-gradient(160deg,#10234a,#0a1630);box-shadow:0 22px 36px -26px rgba(10,22,48,.55)}
 .player video{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;opacity:0;transition:opacity .5s}
 .player.go video{opacity:1}
-@media(min-width:621px){.player.bg{background-image:url(img/aube-s_d.webp)}}
-@media(max-width:620px){.player.bg{background-image:url(img/aube-s_m.webp)}}
 .player.bg{background-size:cover;background-position:center}
 .player .v916{display:none;aspect-ratio:9/16;max-height:70svh;margin-inline:auto}
 @media(max-width:620px){.player .v169{display:none}.player .v916{display:block}}
-.play{position:absolute;inset:0;display:grid;place-items:center;border:0;cursor:pointer;background:linear-gradient(0deg,rgba(6,14,34,.55),rgba(6,14,34,.1) 60%);color:#fff;transition:opacity .3s}
-.play span{display:flex;align-items:center;gap:14px;font:600 14px/1 var(--body);letter-spacing:.04em}
+.play{position:absolute;inset:0;display:grid;place-items:center;border:0;cursor:pointer;color:#fff;background:none;transition:opacity .3s}
+.play span{display:flex;align-items:center;gap:22px;text-align:left}
+.play em{font-size:clamp(24px,3.2vw,40px);line-height:1.1;color:#fff}
 .play b{display:grid;place-items:center;width:68px;height:68px;border-radius:50%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.5);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:transform .4s var(--ease),background .3s}
 .play:hover b{transform:scale(1.08);background:rgba(236,202,132,.3)}
 .play svg{width:22px;height:22px;margin-left:3px}
@@ -243,12 +243,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
 /* barre mobile + indicateur */
 .sticky{display:none}
 @media(max-width:760px){
-  .sticky{display:block;position:fixed;z-index:40;left:16px;right:16px;bottom:max(14px,env(safe-area-inset-bottom));transform:translateY(160%);transition:transform .45s var(--ease)}
+  .sticky{display:block;position:fixed;z-index:40;left:50%;bottom:max(14px,env(safe-area-inset-bottom));margin-left:-120px;width:240px;transform:translateY(160%);transition:transform .45s var(--ease)}
   .sticky.on{transform:none}
   .sticky.on.dn{transform:translateY(160%)}
-  .nav.cta-off{width:auto;left:16px;transform:none;padding-right:22px}
+  .nav.cta-off{width:auto;left:16px;transform:none;padding-right:22px;transition:transform .35s var(--ease),opacity .3s}
+  .nav.cta-off.dn{transform:translateY(-140%);opacity:0}
   .nav.cta-off .btn{display:none}
-  .sticky .btn{width:100%;justify-content:center;min-height:52px;box-shadow:0 14px 24px -14px rgba(10,22,48,.7)}
+  .sticky .btn{width:100%;justify-content:center;min-height:46px;padding:0 16px;font-size:14px;box-shadow:0 14px 24px -14px rgba(10,22,48,.7)}
   footer{padding-bottom:110px}
 }
 .count{position:fixed;z-index:45;right:26px;bottom:24px;display:none;font:italic 400 18px/1 var(--serif);color:#fff;mix-blend-mode:difference;letter-spacing:.04em}
@@ -284,7 +285,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
     <div class="hero__scrim"></div>
     <div class="hero__copy" id="c1">
       <span class="eyebrow" id="refbadge">David Amor · Coach de vie · Jérusalem</span>
-      <h1><span class="ln"><span>Quand tout</span></span><span class="ln"><span>se mélange,</span></span><span class="ln"><span><em>un regard clair.</em></span></span></h1>
+      <h1><span class="ln"><span><span style="margin-right:.035em">Q</span>uand tout</span></span><span class="ln"><span>se mélange,</span></span><span class="ln"><span><em>un regard clair.</em></span></span></h1>
       <p class="hero__lead">J'écoute vraiment, je dis les choses franchement et avec douceur, et vous repartez avec des actions concrètes.</p>
       <a class="btn btn--line hero__cta js-wa" href="https://wa.me/972584921492">Réserver mon appel offert<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <p class="hero__langs">Français · English · <span lang="he" dir="rtl">עברית</span><br>En visio ou par téléphone</p>
@@ -312,7 +313,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
     <div class="player rv" id="player">
       <video class="v169" controls playsinline preload="none" aria-label="Vidéo de présentation du coaching de David Amor"><source src="videos/presentation-16x9.mp4" type="video/mp4"></video>
       <video class="v916" controls playsinline preload="none" aria-label="Vidéo de présentation du coaching de David Amor"><source src="videos/presentation-9x16.mp4" type="video/mp4"></video>
-      <button class="play" id="play" type="button" aria-label="Lancer la vidéo de présentation"><span><b><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></b>Présentation · 1 min 30</span></button>
+      <button class="play" id="play" type="button" aria-label="Lancer la vidéo de présentation"><span><b><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></b><em>Le coaching de David,<br>en une minute trente.</em></span></button>
     </div>
   </div>
 </div></section>
@@ -503,7 +504,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
   if(reduce){load()}
   size();requestAnimationFrame(frame);
 
-  var lastY=scrollY,idle;addEventListener('scroll',function(){var y=scrollY;if(y>lastY+4)sticky.classList.add('dn');else if(y<lastY-4)sticky.classList.remove('dn');lastY=y;clearTimeout(idle);idle=setTimeout(function(){sticky.classList.remove('dn')},900)},{passive:true});
+  var lastY=scrollY,idle;addEventListener('scroll',function(){var y=scrollY;if(y>lastY+4){sticky.classList.add('dn');nav.classList.add('dn')}else if(y<lastY-4){sticky.classList.remove('dn');nav.classList.remove('dn')}lastY=y;clearTimeout(idle);idle=setTimeout(function(){sticky.classList.remove('dn');nav.classList.remove('dn')},900)},{passive:true});
   /* vidéo : un geste lance la lecture */
   var pl=$('#player');
   $('#play').addEventListener('click',function(){
