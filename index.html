@@ -2,278 +2,387 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>David Amor · Coach de vie</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>David Amor · Coach de vie à Jérusalem</title>
 <meta name="description" content="Coaching de vie avec David Amor, depuis Jérusalem. En français, en anglais ou en hébreu, en visio ou par téléphone. Premier appel de 15 minutes offert.">
+<link rel="canonical" href="https://codenolimits.github.io/david-amor-coach/">
 <meta property="og:title" content="David Amor, coach de vie">
 <meta property="og:description" content="Quand tout se mélange, un regard clair. Premier appel de 15 minutes offert.">
 <meta property="og:image" content="https://codenolimits.github.io/david-amor-coach/og.jpg">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#acd3fd">
+<meta name="theme-color" content="#0a1630">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a1630'/%3E%3Ccircle cx='32' cy='38' r='13' fill='%23ecca84'/%3E%3Cpath d='M8 44h48' stroke='%23c9993a' stroke-width='3'/%3E%3C/svg%3E">
 <script>document.documentElement.classList.add("js")</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/BricolageGrotesque-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/InstrumentSerif-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="seq/m/f000.webp" media="(max-width:760px)" fetchpriority="high">
+<link rel="preload" as="image" href="seq/d/f000.webp" media="(min-width:761px)" fetchpriority="high">
 <style>
+@font-face{font-family:"Bricolage";src:url(fonts/BricolageGrotesque-normal.woff2) format("woff2");font-weight:400 800;font-display:swap}
+@font-face{font-family:"Instrument";src:url(fonts/InstrumentSerif-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument";src:url(fonts/InstrumentSerif-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Inter";src:url(fonts/Inter-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
 :root{
-  --sky-l:#c2e0fe;--sky:#acd3fd;--sky-d:#8cbcfb;
-  --ink:#0f2747;--ink-2:#41536b;--paper:#ffffff;--mist:#f2f7fd;
-  --stone:#c99a3e;--wa:#128c4a;--wa-d:#0d7a3f;
-  --display:"Bricolage Grotesque",system-ui,sans-serif;--text:"Source Serif 4",Georgia,serif;
+  --night:#0a1630;--night-2:#10234a;--ink:#0e1b34;--ink-2:#46526a;
+  --cream:#f6f0e6;--paper:#fbf8f2;--line:#e2d9c8;
+  --gold:#c9993a;--gold-l:#ecca84;--gold-d:#8a6420;--rose:#e9b7a2;
+  --sans:"Bricolage","Helvetica Neue",Arial,sans-serif;--serif:"Instrument",Georgia,serif;--body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
 }
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
-body{font:400 18px/1.7 var(--text);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1;letter-spacing:-.025em;color:var(--ink)}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font:400 17px/1.65 var(--body);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
+img,video,canvas{display:block;max-width:100%}
 a{color:inherit}
-img,video{display:block;max-width:100%}
-.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
-.measure{max-width:62ch}
+h1,h2,h3{font-family:var(--sans);font-weight:700;letter-spacing:-.03em;line-height:1.02;color:inherit}
+em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+.eyebrow{font:600 12px/1 var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--gold-d)}
+.dark .eyebrow,.hero .eyebrow{color:var(--gold-l)}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:#fff;padding:12px 16px;border-radius:8px;text-decoration:none}
+.skip:focus{top:12px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:4px}
 
-/* bouton WhatsApp : la seule couleur forte en dehors du ciel */
-.wa{display:inline-flex;align-items:center;gap:10px;background:var(--wa);color:#fff;text-decoration:none;font:700 17px/1 var(--display);padding:17px 26px;border-radius:999px;transition:background .15s}
-.wa:hover{background:var(--wa-d)}
-.wa svg{width:22px;height:22px;flex:none}
-a:focus-visible,summary:focus-visible,video:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+/* boutons : sobres, rectangulaires, un trait d'or */
+.btn{position:relative;display:inline-flex;align-items:center;gap:14px;min-height:56px;padding:0 26px;border-radius:10px;border:1px solid transparent;font:600 15px/1 var(--body);letter-spacing:.01em;text-decoration:none;cursor:pointer;overflow:hidden;isolation:isolate;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .35s}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .35s var(--ease)}
+.btn:hover svg.ar{transform:translateX(5px)}
+.btn--gold{background:linear-gradient(180deg,#f0d393,#d4a447);color:#1a1405;box-shadow:0 1px 0 rgba(255,255,255,.55) inset,0 14px 34px -12px rgba(201,153,58,.65)}
+.btn--gold::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);transition:transform .8s var(--ease)}
+.btn--gold:hover::after{transform:translateX(120%)}
+.btn--gold:hover{transform:translateY(-2px)}
+.btn--ink{background:var(--ink);color:var(--cream);box-shadow:0 14px 34px -14px rgba(14,27,52,.6)}
+.btn--ink:hover{transform:translateY(-2px);background:#16294d}
+.btn--line{border-color:rgba(255,255,255,.35);color:#fff;background:rgba(255,255,255,.05);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.btn--line:hover{border-color:var(--gold-l);color:var(--gold-l)}
+.btn--sm{min-height:44px;padding:0 18px;font-size:14px;border-radius:8px}
 
-header.top{position:sticky;top:0;z-index:10;background:rgba(194,224,254,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.name{font:800 19px/1 var(--display);letter-spacing:-.02em;text-decoration:none}
-.top .wa{padding:10px 16px;font-size:15px}
+/* navigation : verre, flottante */
+.nav{position:fixed;z-index:50;top:14px;left:50%;transform:translateX(-50%);width:min(1100px,100% - 28px);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:8px 8px 8px 22px;border-radius:14px;color:#fff;background:rgba(10,22,48,.42);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(16px) saturate(1.3);backdrop-filter:blur(16px) saturate(1.3);transition:background .4s,color .4s,border-color .4s,box-shadow .4s}
+.nav.light{background:rgba(251,248,242,.82);color:var(--ink);border-color:var(--line);box-shadow:0 10px 40px -18px rgba(14,27,52,.35)}
+.nav__name{font:700 18px/1 var(--sans);letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+.nav__links{display:none;gap:30px;list-style:none;padding:0;font:500 14px/1 var(--body)}
+.nav__links a{text-decoration:none;opacity:.78;transition:opacity .2s}
+.nav__links a:hover{opacity:1}
+@media(min-width:860px){.nav__links{display:flex}}
+.prog{position:fixed;z-index:60;top:0;left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--gold),var(--gold-l))}
 
-/* HÉROS — le ciel de la photo devient la page */
-.hero{background:linear-gradient(90deg,var(--sky-l) 0%,var(--sky) 55%,var(--sky-d) 100%);overflow:hidden;padding:0}
-.hero-grid{display:grid}
-.hero-text{padding:40px 20px 30px}
-.who{font:500 17px/1.3 var(--display);color:var(--ink-2);margin-bottom:18px}
-.hero h1{font-size:clamp(48px,11.5vw,112px);line-height:.92;letter-spacing:-.03em;margin-bottom:26px}
-.hero h1 span{display:block}
-.hero p.lead{font-size:19px;max-width:30em;margin-bottom:28px}
-.hero .note{font:500 15px/1.4 var(--display);color:var(--ink-2);margin-top:14px}
-.hero-photo img{width:100%;height:auto;aspect-ratio:1/1.05;object-fit:cover;object-position:50% 80%;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%);mask-image:linear-gradient(to bottom,transparent 0,#000 16%)}
+/* HÉROS : l'aube se lève au fil du défilement */
+.hero{position:relative;height:330svh;background:var(--night);color:#fff}
+.hero__stick{position:sticky;top:0;height:100svh;overflow:hidden}
+.hero__stick>img,.hero__stick>canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero__scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,14,34,.78) 0%,rgba(6,14,34,.46) 46%,rgba(6,14,34,0) 76%),linear-gradient(0deg,rgba(6,14,34,.7) 0%,transparent 42%),linear-gradient(180deg,rgba(6,14,34,.45) 0%,transparent 22%)}
+.hero__copy,.hero__two{position:absolute;left:max(20px,calc((100vw - 1200px)/2));right:20px;bottom:clamp(96px,15svh,150px);max-width:min(760px,100% - 20px);will-change:transform,opacity}
+.hero__two{opacity:0;pointer-events:none;bottom:clamp(110px,18svh,170px)}
+.hero__two.on{pointer-events:auto}
+.hero .eyebrow{display:block;margin-bottom:22px}
+@media(max-width:520px){.hero .eyebrow{font-size:10.5px;letter-spacing:.14em;white-space:nowrap}.hero__langs{line-height:1.5}}
+.hero h1{font-size:clamp(46px,8.2vw,124px);line-height:.94;letter-spacing:-.045em;font-weight:700}
+.hero h1 em{display:block;font-size:1.04em;letter-spacing:-.03em;background:linear-gradient(100deg,var(--gold-l),#f7e6bd 45%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+.hero__lead{margin:26px 0 0;max-width:34em;font-size:clamp(16.5px,1.5vw,20px);line-height:1.6;color:rgba(255,255,255,.86)}
+.hero__langs{margin-top:22px;font:500 13.5px/1 var(--body);letter-spacing:.04em;color:rgba(255,255,255,.7)}
+.hero__two h2{font-size:clamp(34px,5.4vw,78px);letter-spacing:-.04em;line-height:1}
+.hero__two p{margin:18px 0 28px;max-width:30em;font-size:clamp(16.5px,1.5vw,20px);color:rgba(255,255,255,.86)}
+.hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font:600 11px/1 var(--body);letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.72);transition:opacity .4s}
+.hint i{display:block;width:1px;height:38px;background:linear-gradient(var(--gold-l),transparent);transform-origin:0 0;animation:drip 2.2s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0)}60%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+.hero__meta{position:absolute;right:max(20px,calc((100vw - 1200px)/2));bottom:34px;display:none;font:500 12px/1.4 var(--body);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);text-align:right}
+@media(min-width:900px){.hero__meta{display:block}}
+
+/* titres : révélation ligne à ligne */
+.ln{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
+.ln>span{display:block}
+.js .ln>span{transform:translateY(108%)}
+.in .ln>span,.ln.in>span{transform:none;transition:transform 1.05s var(--ease)}
+.in .ln:nth-child(2)>span{transition-delay:.1s}.in .ln:nth-child(3)>span{transition-delay:.2s}
+.js .rv{opacity:0;transform:translateY(26px)}
+.rv.in{opacity:1;transform:none;transition:opacity .9s var(--ease) var(--d,0s),transform .9s var(--ease) var(--d,0s)}
+
+section{position:relative}
+.sec{padding:clamp(80px,11vw,150px) 0}
+.sec h2{font-size:clamp(38px,6.4vw,92px);letter-spacing:-.045em}
+.sec h2 em{color:var(--gold-d)}
+.dark{background:var(--night);color:#fff}
+.dark h2 em{color:var(--gold-l)}
+.dark .ink2{color:rgba(255,255,255,.72)}
+.ink2{color:var(--ink-2)}
+.cream{background:var(--cream)}
+.head{display:grid;gap:18px;align-content:start;margin-bottom:clamp(40px,6vw,76px)}
+
+/* présentation */
+.intro{display:grid;gap:44px;align-items:center}
+@media(min-width:900px){.intro{grid-template-columns:.85fr 1.15fr;gap:84px}}
+.portrait{position:relative;max-width:520px}
+.portrait::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--gold);border-radius:6px;z-index:0}
+.portrait img{position:relative;z-index:1;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:6px;box-shadow:0 40px 80px -40px rgba(14,27,52,.55)}
+.portrait figcaption{position:absolute;z-index:2;left:18px;bottom:18px;padding:9px 13px;border-radius:6px;background:rgba(10,22,48,.72);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font:500 12.5px/1 var(--body);letter-spacing:.06em}
+.intro h2{margin:18px 0 26px;font-size:clamp(36px,4.6vw,68px)}
+.intro p{font-size:clamp(17px,1.5vw,20px);max-width:34em}
+.player{position:relative;margin-top:34px;border-radius:10px;overflow:hidden;background:var(--night) url(img/aube-d.webp) center/cover;box-shadow:0 30px 70px -34px rgba(14,27,52,.6)}
+.player video{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;opacity:0;transition:opacity .5s}
+.player.go video{opacity:1}
+@media(max-width:620px){.player{background-image:url(img/aube-m.webp)}}
+.player .v916{display:none;aspect-ratio:9/16;max-height:70svh;margin-inline:auto}
+@media(max-width:620px){.player .v169{display:none}.player .v916{display:block}}
+.play{position:absolute;inset:0;display:grid;place-items:center;border:0;cursor:pointer;background:linear-gradient(0deg,rgba(6,14,34,.55),rgba(6,14,34,.1) 60%);color:#fff;transition:opacity .3s}
+.play span{display:flex;align-items:center;gap:14px;font:600 14px/1 var(--body);letter-spacing:.04em}
+.play b{display:grid;place-items:center;width:68px;height:68px;border-radius:50%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.5);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:transform .4s var(--ease),background .3s}
+.play:hover b{transform:scale(1.08);background:rgba(236,202,132,.3)}
+.play svg{width:22px;height:22px;margin-left:3px}
+.player.go .play{opacity:0;pointer-events:none}
+
+/* « vous vous reconnaissez ? » : piste à faire glisser */
+.track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px max(20px,calc((100vw - 1200px)/2)) 30px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.track::-webkit-scrollbar{display:none}
+.card{flex:0 0 min(84vw,430px);scroll-snap-align:center;display:flex;flex-direction:column;justify-content:space-between;gap:56px;min-height:370px;padding:32px 30px 30px;border-radius:12px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.14);transition:transform .5s var(--ease),border-color .4s}
+.card:hover{transform:translateY(-6px);border-color:rgba(236,202,132,.6)}
+.card i{font:italic 400 15px/1 var(--serif);color:var(--gold-l);font-size:20px}
+.card q{display:block;quotes:none;font:italic 400 clamp(28px,3vw,38px)/1.14 var(--serif);letter-spacing:-.01em;color:#fff}
+.tr-foot{display:flex;align-items:center;gap:20px;margin-top:6px}
+.bar{flex:1;height:1px;background:rgba(255,255,255,.18);position:relative;overflow:hidden}
+.bar b{position:absolute;inset:0;background:var(--gold-l);transform-origin:0 50%;transform:scaleX(.25)}
+.tr-foot p{font-size:15px;color:rgba(255,255,255,.7);max-width:34em}
+
+/* phrase : la valeur */
+.quote{min-height:92svh;display:grid;place-items:center;text-align:center;overflow:hidden;color:#fff;padding:120px 0}
+.quote__bg{position:absolute;inset:-14% 0;background:var(--night) center/cover no-repeat;will-change:transform}
+.quote::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 50%,rgba(6,14,34,.62),rgba(6,14,34,.3))}
+.quote .wrap{position:relative;z-index:2}
+.quote blockquote{font:700 clamp(40px,7.6vw,116px)/.98 var(--sans);letter-spacing:-.05em;max-width:12em;margin-inline:auto}
+.quote blockquote em{background:linear-gradient(100deg,var(--gold-l),#f7e6bd,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.05em}
+.quote cite{display:block;margin-top:34px;font:600 12px/1 var(--body);letter-spacing:.26em;text-transform:uppercase;font-style:normal;color:var(--gold-l)}
+
+/* étapes */
+.steps{display:grid;gap:0;list-style:none;padding:0;border-top:1px solid var(--ink)}
+.steps li{display:grid;grid-template-columns:auto 1fr;gap:6px 26px;padding:34px 0;border-bottom:1px solid var(--line);align-items:start}
+.steps li>span{grid-row:1/3;font:400 clamp(70px,11vw,150px)/.8 var(--serif);color:var(--gold);padding-top:6px;min-width:1.1em}
+.steps h3{font-size:clamp(24px,3.2vw,40px);letter-spacing:-.03em;align-self:end}
+.steps p{color:var(--ink-2);max-width:36em;align-self:start}
 @media(min-width:900px){
-  .hero-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);min-height:calc(100vh - 60px)}
-  .hero-text{padding:64px 48px 88px max(20px,calc((100vw - 1140px)/2 + 20px));align-self:center}
-  .hero h1{font-size:clamp(60px,7.4vw,112px)}
-  .hero-photo{position:relative}
-  .hero-photo img{position:absolute;inset:0;height:100%;aspect-ratio:auto;object-position:40% 60%;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 15%);mask-image:linear-gradient(to right,transparent 0,#000 15%)}
+  .steps{grid-template-columns:repeat(3,1fr);border-top:0}
+  .steps li{display:block;border-bottom:0;border-top:1px solid var(--ink);padding:30px 34px 10px 0}
+  .steps li>span{display:block;margin-bottom:26px}
+  .steps h3{margin-bottom:12px}
 }
-@media(prefers-reduced-motion:no-preference){
-  .hero h1 span{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
-  .hero h1 span:nth-child(2){animation-delay:.12s}
-  .hero h1 span:nth-child(3){animation-delay:.24s}
-  .hero-photo img{animation:settle 1.4s cubic-bezier(.2,.7,.2,1) both}
-}
-@keyframes rise{from{opacity:0;transform:translateY(.35em)}to{opacity:1;transform:none}}
-@keyframes settle{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
 
-.block{padding:76px 0}
-.block h2{font-size:clamp(34px,6vw,60px);margin-bottom:22px}
-
-/* vidéo + présentation */
-.intro{display:grid;gap:36px;align-items:center}
-.intro p{font-size:20px}
-.player{border-radius:22px;overflow:hidden;background:var(--ink)}
-.player .v169{display:none}
-@media(min-width:900px){.intro{grid-template-columns:.9fr 1.1fr}.player .v916{display:none}.player .v169{display:block}}
-
-/* ce que les gens se disent */
-.voices{background:var(--mist)}
-.voices ul{list-style:none;padding:0;display:grid;gap:22px;margin:8px 0 30px}
-.voices li{font:italic 400 clamp(22px,3.4vw,30px)/1.35 var(--text);padding-left:22px;border-left:4px solid var(--sky-d);max-width:30em}
-.voices p{color:var(--ink-2);font-size:19px}
-
-/* phrase de David */
-.quote{background:var(--ink);color:#fff}
-.quote blockquote{font:800 clamp(38px,7vw,84px)/1 var(--display);letter-spacing:-.035em;max-width:14em}
-.quote figcaption{font:500 18px/1 var(--display);color:var(--sky);margin-top:26px}
-
-/* parcours : une vraie chronologie */
-.path ol{list-style:none;padding:0;margin-top:12px;border-left:2px solid var(--sky)}
-.path li{position:relative;padding:0 0 34px 30px}
-.path li:last-child{padding-bottom:0}
-.path li::before{content:"";position:absolute;left:-8px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--stone);box-shadow:0 0 0 4px #fff}
-.path .when{font:700 16px/1.2 var(--display);color:#9a7426}
-.path h3{font-size:26px;margin:4px 0 6px;letter-spacing:-.015em}
-.path p{color:var(--ink-2)}
+/* parcours */
+.path{display:grid;gap:50px}
+@media(min-width:900px){.path{grid-template-columns:.8fr 1.2fr;gap:90px}.path .head{position:sticky;top:120px;align-self:start;margin:0}}
+.path ol{list-style:none;padding:0;border-top:1px solid var(--line)}
+.path li{display:grid;gap:8px 30px;padding:32px 0;border-bottom:1px solid var(--line)}
+@media(min-width:620px){.path li{grid-template-columns:190px 1fr}}
+.path .when{font:600 13px/1.5 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-d)}
+.path h3{font-size:clamp(26px,3vw,38px);letter-spacing:-.03em;margin-bottom:8px}
+.path p{color:var(--ink-2);max-width:34em}
 
 /* façon de faire */
-.how{padding-top:0}
-.how .grid{display:grid;gap:30px;margin-top:10px}
-@media(min-width:760px){.how .grid{grid-template-columns:repeat(3,1fr)}}
-.how h3{font-size:24px;margin-bottom:8px;letter-spacing:-.015em}
-.how p{color:var(--ink-2)}
+.how{display:grid;gap:0}
+@media(min-width:800px){.how{grid-template-columns:repeat(3,1fr);gap:0 54px}}
+.how>div{padding:30px 0;border-top:1px solid rgba(255,255,255,.2)}
+.how h3{font-size:clamp(28px,3vw,42px);margin:18px 0 12px;letter-spacing:-.035em}
+.how h3 em{color:var(--gold-l)}
+.how p{color:rgba(255,255,255,.72);max-width:26em}
+.how .rule{display:block;width:34px;height:2px;background:var(--gold)}
 
-/* tarifs : une carte, pas des cartes */
-.prices{background:var(--mist)}
-.prices dl{margin-top:8px;border-top:2px solid var(--ink)}
-.prices .row{display:flex;align-items:baseline;gap:14px;padding:22px 0;border-bottom:1px solid #d6e3f2}
-.prices dt{font:700 clamp(20px,3vw,26px)/1.2 var(--display);letter-spacing:-.015em}
-.prices dt small{display:block;font:400 16px/1.4 var(--text);color:var(--ink-2);letter-spacing:0;margin-top:4px}
-.prices .lead-dots{flex:1;border-bottom:2px dotted #b7cde6;transform:translateY(-6px);min-width:20px}
-.prices dd{font:800 clamp(24px,4vw,34px)/1 var(--display);white-space:nowrap}
-.prices .pay{margin-top:26px;color:var(--ink-2);max-width:40em}
+/* tarifs */
+.prices{display:grid;gap:48px}
+@media(min-width:900px){.prices{grid-template-columns:.8fr 1.2fr;gap:90px}}
+.offer{display:grid;grid-template-columns:1fr auto;gap:6px 24px;align-items:baseline;padding:30px 0;border-top:1px solid var(--line)}
+.offer:last-of-type{border-bottom:1px solid var(--line)}
+.offer h3{font-size:clamp(24px,2.6vw,34px);letter-spacing:-.03em}
+.offer p{grid-column:1;color:var(--ink-2);font-size:16px}
+.offer .pr{grid-column:2;grid-row:1/3;font:400 clamp(46px,6vw,84px)/.9 var(--serif);letter-spacing:-.02em;white-space:nowrap}
+.offer--main{margin:14px -22px;padding:36px 22px;border:1px solid var(--gold);border-radius:12px;background:var(--night);color:#fff;position:relative;box-shadow:0 40px 80px -44px rgba(14,27,52,.75)}
+.offer--main:last-of-type{border-bottom:1px solid var(--gold)}
+.offer--main p{color:rgba(255,255,255,.72)}
+.offer--main .pr{color:var(--gold-l)}
+.offer--main .eyebrow{grid-column:1/-1;margin-bottom:12px;color:var(--gold-l)}
+.pay{margin-top:28px;color:var(--ink-2);max-width:40em;font-size:16px}
 
 /* questions */
-.faq details{border-bottom:1px solid #d6e3f2;padding:18px 0}
-.faq details:first-of-type{border-top:2px solid var(--ink)}
-.faq summary{cursor:pointer;font:700 20px/1.3 var(--display);letter-spacing:-.01em;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq{display:grid;gap:40px}
+@media(min-width:900px){.faq{grid-template-columns:.8fr 1.2fr;gap:90px}}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;cursor:pointer;list-style:none;font:600 clamp(19px,2vw,24px)/1.3 var(--sans);letter-spacing:-.02em;min-height:44px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-weight:500;color:var(--ink-2)}
-.faq details[open] summary::after{content:"–"}
-.faq details p{margin-top:10px;color:var(--ink-2);max-width:60ch}
+.faq summary i{position:relative;flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);transition:transform .45s var(--ease),background .3s,border-color .3s}
+.faq summary i::before,.faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:currentColor;transform:translate(-50%,-50%)}
+.faq summary i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .45s var(--ease)}
+.faq details[open] summary i{background:var(--ink);color:#fff;border-color:var(--ink)}
+.faq details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.faq details p{padding:0 54px 28px 0;color:var(--ink-2);max-width:40em;animation:open .5s var(--ease)}
+@keyframes open{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 
-/* fin : retour au ciel */
-.end{background:linear-gradient(90deg,var(--sky-l),var(--sky) 55%,var(--sky-d))}
-.end h2{font-size:clamp(44px,9vw,96px);letter-spacing:-.04em}
-.end p{font-size:20px;margin:0 0 28px;max-width:30em}
+/* fin */
+.end{min-height:96svh;display:grid;align-items:end;color:#fff;overflow:hidden;padding:130px 0 90px}
+.end .quote__bg{inset:-10% 0}
+.end::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,14,34,.78),rgba(6,14,34,.15) 65%),linear-gradient(90deg,rgba(6,14,34,.5),transparent 60%)}
+.end .wrap{position:relative;z-index:2}
+.end h2{font-size:clamp(50px,10.5vw,170px);letter-spacing:-.055em;line-height:.92}
+.end h2 em{color:var(--gold-l)}
+.end p{margin:26px 0 36px;max-width:28em;font-size:clamp(17px,1.6vw,21px);color:rgba(255,255,255,.86)}
+footer{background:var(--night);color:rgba(255,255,255,.6);padding:34px 0 40px;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 30px}
 
-footer{padding:30px 0 40px;font-size:15px;color:var(--ink-2)}
-footer p+p{margin-top:6px}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.wa{transition:none}}
-
-/* ===== version « wow » (22/10) : lumière vivante, repères, étapes, apparitions, barre mobile ===== */
-.hero{position:relative;isolation:isolate}
-.hero::before{content:"";position:absolute;inset:-20%;z-index:-1;background:radial-gradient(40% 35% at 25% 30%,rgba(255,255,255,.55),transparent 70%),radial-gradient(35% 30% at 70% 70%,rgba(201,154,62,.18),transparent 70%);animation:drift 18s ease-in-out infinite alternate}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;opacity:.12;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
-@keyframes drift{to{transform:translate(4%,-3%) scale(1.08)}}
-.refbadge{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;padding:7px 14px 7px 10px;border-radius:999px;background:#fff;box-shadow:0 6px 22px rgba(15,39,71,.12);font:700 14px/1 var(--display);color:var(--ink)}
-.refbadge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--stone)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px;padding:0;list-style:none}
-.chips li{padding:8px 13px;border-radius:999px;background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font:600 14.5px/1 var(--display);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(15,39,71,.08)}
-.hero h1 span:nth-child(3){background:linear-gradient(100deg,var(--ink) 20%,#2a5a96 60%,var(--ink));-webkit-background-clip:text;background-clip:text;color:transparent}
-.wa{box-shadow:0 10px 26px rgba(18,140,74,.28)}
-.steps{counter-reset:s;list-style:none;padding:0;display:grid;gap:18px;margin-top:10px}
-@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
-.steps li{position:relative;padding:26px 24px 24px;border-radius:22px;background:var(--mist);box-shadow:inset 0 0 0 1px #dfe9f6}
-.steps li::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;margin-bottom:14px;background:var(--ink);color:#fff;font:800 17px/1 var(--display)}
-.steps h3{font-size:23px;margin-bottom:6px;letter-spacing:-.015em}
-.steps p{color:var(--ink-2)}
-.voices li{background:#fff;border-left:0;padding:20px 22px;border-radius:18px;box-shadow:0 8px 24px rgba(15,39,71,.06),inset 4px 0 0 var(--sky-d)}
-.quote{background:radial-gradient(60% 80% at 80% 20%,#1d3d6b,transparent),var(--ink)}
-.quote blockquote{background:linear-gradient(100deg,#fff 40%,var(--sky) 75%,#e9cf93);-webkit-background-clip:text;background-clip:text;color:transparent}
-.rv{opacity:1}
-@media(prefers-reduced-motion:no-preference){.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}.js .rv.in{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){.hero::before{animation:none}}
-.stickycta{display:none}
+/* barre mobile + indicateur */
+.sticky{display:none}
 @media(max-width:760px){
-  .stickycta{display:flex;position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:20;justify-content:center;transform:translateY(140%);transition:transform .35s ease}
-  .stickycta.on{transform:none}
-  .stickycta .wa{width:100%;justify-content:center}
+  .sticky{display:block;position:fixed;z-index:40;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));transform:translateY(160%);transition:transform .45s var(--ease)}
+  .sticky.on{transform:none}
+  .sticky .btn{width:100%;justify-content:center}
   footer{padding-bottom:110px}
 }
-.prices .row--main{margin:10px -18px 0;padding:24px 18px;border-radius:18px;border-bottom:0;background:#fff;box-shadow:0 14px 40px rgba(15,39,71,.10),inset 0 0 0 2px var(--sky-d)}
-.prices .tag{display:inline-block;margin-bottom:8px;padding:5px 10px;border-radius:999px;background:var(--ink);color:#fff;font:700 12.5px/1 var(--display);letter-spacing:.02em}
-.player{position:relative}
-.player .dur{position:absolute;top:14px;left:14px;z-index:2;padding:6px 11px;border-radius:999px;background:rgba(15,39,71,.78);color:#fff;font:700 13px/1 var(--display);pointer-events:none}
+.cur{position:fixed;z-index:70;left:0;top:0;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:1px solid rgba(236,202,132,.8);pointer-events:none;opacity:0;transition:width .3s var(--ease),height .3s var(--ease),margin .3s var(--ease),opacity .3s,background .3s}
+.cur.on{opacity:1}.cur.big{width:76px;height:76px;margin:-38px 0 0 -38px;background:rgba(236,202,132,.16)}
+@media(pointer:coarse){.cur{display:none}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv,.js .ln>span{opacity:1;transform:none}
+  .hint i{animation:none}.cur{display:none}
+  .hero{height:auto}.hero__stick{height:100svh}
+}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap">
-  <a class="name" href="#">David Amor</a>
-  <a class="wa js-wa" href="https://wa.me/972584921492">Appel offert</a>
-</div></header>
+<a class="skip" href="#approche">Aller au contenu</a>
+<div class="prog" id="prog" aria-hidden="true"></div>
+<div class="cur" id="cur" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a class="nav__name" href="#top">David Amor</a>
+  <ul class="nav__links"><li><a href="#approche">Approche</a></li><li><a href="#parcours">Parcours</a></li><li><a href="#tarifs">Tarifs</a></li><li><a href="#questions">Questions</a></li></ul>
+  <a class="btn btn--gold btn--sm js-wa" href="https://wa.me/972584921492">Appel offert<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</header>
 
 <main>
-<section class="hero"><div class="hero-grid">
-  <div class="hero-text">
-    <p class="refbadge" id="refbadge" hidden></p>
-    <p class="who">David Amor, coach de vie à Jérusalem</p>
-    <h1><span>Quand tout</span><span>se mélange,</span><span>un regard clair.</span></h1>
-    <ul class="chips"><li>Français · English · עברית</li><li>Visio ou téléphone</li><li>1er appel de 15 min offert</li></ul>
-    <p class="lead">J'écoute vraiment, je dis les choses franchement et avec douceur, et vous repartez avec des actions concrètes. En français, en anglais ou en hébreu, en visio ou par téléphone.</p>
-    <a class="wa js-wa" href="https://wa.me/972584921492"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Réserver mon appel offert</a>
-    <p class="note">15 minutes pour faire connaissance, sans engagement.</p>
+<section class="hero" id="top" data-n="60">
+  <div class="hero__stick">
+    <img src="seq/d/f000.webp" srcset="seq/m/f000.webp 720w, seq/d/f000.webp 1280w" sizes="100vw" width="1280" height="720" alt="" fetchpriority="high" id="seq0">
+    <canvas id="seq" aria-hidden="true"></canvas>
+    <div class="hero__scrim"></div>
+    <div class="hero__copy" id="c1">
+      <span class="eyebrow" id="refbadge">David Amor · Coach de vie · Jérusalem</span>
+      <h1><span class="ln"><span>Quand tout</span></span><span class="ln"><span>se mélange,</span></span><span class="ln"><span><em>un regard clair.</em></span></span></h1>
+      <p class="hero__lead">J'écoute vraiment, je dis les choses franchement et avec douceur, et vous repartez avec des actions concrètes.</p>
+      <p class="hero__langs">Français · English · <span lang="he" dir="rtl">עברית</span> &nbsp;—&nbsp; en visio ou par téléphone</p>
+    </div>
+    <div class="hero__two" id="c2">
+      <span class="eyebrow">Le premier pas</span>
+      <h2>15 minutes pour <em style="color:var(--gold-l)">faire connaissance.</em></h2>
+      <p>Un appel découverte offert, sans engagement. On voit ensemble si je peux vous aider.</p>
+      <a class="btn btn--gold js-wa" href="https://wa.me/972584921492"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>Réserver mon appel offert<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="hint" id="hint"><span>Faites défiler</span><i></i></div>
+    <div class="hero__meta" aria-hidden="true">Jérusalem<br>Une aube, un regard</div>
   </div>
-  <div class="hero-photo">
-    <img src="img/david-1086.jpg" srcset="img/david-700.jpg 700w, img/david-1086.jpg 1086w" sizes="(min-width:900px) 45vw, 100vw" width="1086" height="1448" alt="David Amor, en plein air sous le ciel de Jérusalem" fetchpriority="high">
-  </div>
-</div></section>
+</section>
 
-<section class="block"><div class="wrap intro">
-  <div class="measure">
-    <h2>Celui qu'on appelle quand ça ne va pas.</h2>
-    <p>Depuis des années, mes proches et mes amis m'appellent dans les moments difficiles. Je les écoute, je les conseille, gratuitement. Aujourd'hui, j'ouvre cet accompagnement à tous ceux qui en ont besoin.</p>
-  </div>
-  <div class="player"><span class="dur" aria-hidden="true">Vidéo · 1 min 30</span>
-    <video class="v916" controls playsinline preload="none" poster="videos/presentation-9x16.jpg" aria-label="Vidéo de présentation du coaching de David Amor"><source src="videos/presentation-9x16.mp4" type="video/mp4"></video>
-    <video class="v169" controls playsinline preload="none" poster="videos/presentation-16x9.jpg" aria-label="Vidéo de présentation du coaching de David Amor"><source src="videos/presentation-16x9.mp4" type="video/mp4"></video>
-  </div>
-</div></section>
-
-<section class="block"><div class="wrap">
-  <h2 class="rv">Comment ça se passe</h2>
-  <ol class="steps">
-    <li class="rv"><h3>Un message</h3><p>Vous m'écrivez sur WhatsApp. Je vous réponds pour fixer votre appel découverte.</p></li>
-    <li class="rv"><h3>15 minutes offertes</h3><p>On fait connaissance, sans engagement, en visio ou par téléphone.</p></li>
-    <li class="rv"><h3>Des actions concrètes</h3><p>Si on continue, chaque séance se termine par des actions simples, à faire dès le lendemain.</p></li>
-  </ol>
-</div></section>
-
-<section class="block voices"><div class="wrap">
-  <h2 class="rv">Vous vous reconnaissez ?</h2>
-  <ul>
-    <li class="rv">«&nbsp;Je porte tout, tout seul, et personne ne m'écoute vraiment.&nbsp;»</li>
-    <li class="rv">«&nbsp;Je tourne en rond sur une décision depuis des semaines.&nbsp;»</li>
-    <li class="rv">«&nbsp;À la maison, quelque chose coince et je ne sais pas par où commencer.&nbsp;»</li>
-    <li class="rv">«&nbsp;Je ne crois plus assez en moi pour avancer.&nbsp;»</li>
-  </ul>
-  <p class="measure">Pas besoin d'aller mal pour se faire accompagner. Il suffit de sentir que, seul, ça n'avance plus.</p>
-</div></section>
-
-<section class="block quote"><div class="wrap">
-  <figure>
-    <blockquote>Votre valeur ne dépend pas de ce que vous faites.</blockquote>
-    <figcaption>David</figcaption>
+<section class="sec" id="approche"><div class="wrap intro">
+  <figure class="portrait rv">
+    <img src="img/david-700.jpg" srcset="img/david-700.jpg 700w, img/david-1086.jpg 1086w" sizes="(min-width:900px) 40vw, 90vw" width="1086" height="1448" alt="David Amor, en plein air sous le ciel de Jérusalem" loading="lazy">
+    <figcaption>David Amor · Jérusalem</figcaption>
   </figure>
-</div></section>
-
-<section class="block path"><div class="wrap">
-  <h2 class="rv">Mon parcours</h2>
-  <ol class="measure">
-    <li><div class="when">2004 à 2010, Montréal</div><h3>Psychologie et enseignement</h3><p>Des études de sciences et de psychologie au cégep Saint-Laurent, puis de psychologie et d'enseignement à l'Université de Montréal.</p></li>
-    <li><div class="when">2013 à 2015</div><h3>Le terrain</h3><p>La vente, en face-à-face et au téléphone. Des rencontres et des échanges, tous les jours.</p></li>
-    <li><div class="when">Depuis 2016, Jérusalem</div><h3>Entrepreneur</h3><p>Plusieurs entreprises créées : gestion immobilière, marketing digital, puis un studio d'intelligence artificielle.</p></li>
-    <li><div class="when">Aujourd'hui</div><h3>J'accompagne</h3><p>Celles et ceux qui traversent une période de doute, en français, en anglais ou en hébreu.</p></li>
-  </ol>
-</div></section>
-
-<section class="block how"><div class="wrap">
-  <h2 class="rv">Ma façon de faire</h2>
-  <div class="grid">
-    <div><h3>Franc, avec douceur</h3><p>Je dis les choses clairement, en m'adaptant à la sensibilité de chacun.</p></div>
-    <div><h3>La confiance et la joie</h3><p>On avance avec confiance et avec joie, plutôt qu'avec la peur et la culpabilité.</p></div>
-    <div><h3>Du concret</h3><p>Chaque séance se termine par des actions simples, à faire dès le lendemain.</p></div>
+  <div>
+    <span class="eyebrow rv">Qui je suis</span>
+    <h2 class="rv"><span class="ln"><span>Celui qu'on appelle</span></span><span class="ln"><span><em>quand ça ne va pas.</em></span></span></h2>
+    <p class="rv ink2">Depuis des années, mes proches et mes amis m'appellent dans les moments difficiles. Je les écoute, je les conseille, gratuitement. Aujourd'hui, j'ouvre cet accompagnement à tous ceux qui en ont besoin.</p>
+    <div class="player rv" id="player">
+      <video class="v169" controls playsinline preload="none" aria-label="Vidéo de présentation du coaching de David Amor"><source src="videos/presentation-16x9.mp4" type="video/mp4"></video>
+      <video class="v916" controls playsinline preload="none" aria-label="Vidéo de présentation du coaching de David Amor"><source src="videos/presentation-9x16.mp4" type="video/mp4"></video>
+      <button class="play" id="play" type="button" aria-label="Lancer la vidéo de présentation"><span><b><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></b>Présentation · 1 min 30</span></button>
+    </div>
   </div>
 </div></section>
 
-<section class="block prices" id="tarifs"><div class="wrap">
-  <h2 class="rv">Tarifs</h2>
-  <dl>
-    <div class="row"><dt>Appel découverte<small>15 minutes pour faire connaissance</small></dt><span class="lead-dots" aria-hidden="true"></span><dd>Offert</dd></div>
-    <div class="row"><dt>Séance individuelle<small>1 heure, en visio ou par téléphone</small></dt><span class="lead-dots" aria-hidden="true"></span><dd>60&nbsp;€</dd></div>
-    <div class="row row--main"><dt><span class="tag">Pour avancer en un mois</span>Accompagnement<small>4 séances, une par semaine pendant un mois</small></dt><span class="lead-dots" aria-hidden="true"></span><dd>220&nbsp;€</dd></div>
-  </dl>
-  <p class="pay">Paiement par virement bancaire en euros. Je vous envoie les coordonnées après l'appel découverte, avec la référence à indiquer.</p>
+<section class="sec dark" id="reconnaitre" style="padding-bottom:clamp(60px,8vw,110px)">
+  <div class="wrap head">
+    <span class="eyebrow rv">Quand ça coince</span>
+    <h2 class="rv"><span class="ln"><span>Vous vous</span></span><span class="ln"><span><em>reconnaissez ?</em></span></span></h2>
+  </div>
+  <div class="track" id="track" tabindex="0" aria-label="Phrases que l'on entend souvent, à faire défiler">
+    <div class="card"><i>01</i><q>Je porte tout, tout seul, et personne ne m'écoute vraiment.</q></div>
+    <div class="card"><i>02</i><q>Je tourne en rond sur une décision depuis des semaines.</q></div>
+    <div class="card"><i>03</i><q>À la maison, quelque chose coince et je ne sais pas par où commencer.</q></div>
+    <div class="card"><i>04</i><q>Je ne crois plus assez en moi pour avancer.</q></div>
+  </div>
+  <div class="wrap tr-foot"><div class="bar"><b id="bar"></b></div><p>Pas besoin d'aller mal pour se faire accompagner. Il suffit de sentir que, seul, ça n'avance plus.</p></div>
+</section>
+
+<section class="quote">
+  <div class="quote__bg" data-par="0.12" id="qbg"></div>
+  <div class="wrap">
+    <blockquote class="rv">Votre valeur <em>ne dépend pas</em> de ce que vous faites.</blockquote>
+    <cite class="rv" style="--d:.2s">David</cite>
+  </div>
+</section>
+
+<section class="sec"><div class="wrap">
+  <div class="head"><span class="eyebrow rv">Comment ça se passe</span>
+  <h2 class="rv"><span class="ln"><span>Simple, et</span></span><span class="ln"><span><em>sans engagement.</em></span></span></h2></div>
+  <ol class="steps">
+    <li class="rv"><span>1</span><h3>Un message</h3><p>Vous m'écrivez sur WhatsApp. Je vous réponds pour fixer votre appel découverte.</p></li>
+    <li class="rv" style="--d:.12s"><span>2</span><h3>15 minutes offertes</h3><p>On fait connaissance, sans engagement, en visio ou par téléphone.</p></li>
+    <li class="rv" style="--d:.24s"><span>3</span><h3>Des actions concrètes</h3><p>Si on continue, chaque séance se termine par des actions simples, à faire dès le lendemain.</p></li>
+  </ol>
 </div></section>
 
-<section class="block faq"><div class="wrap measure">
-  <h2>Questions</h2>
-  <details><summary>Comment se passe une séance ?</summary><p>Vous me parlez de ce qui vous occupe. J'écoute, je pose les bonnes questions, et je vous aide à y voir clair. Vous repartez avec quelques actions concrètes.</p></details>
-  <details><summary>Dans quelle langue ?</summary><p>En français, en anglais ou en hébreu, comme vous préférez.</p></details>
-  <details><summary>En visio ou par téléphone ?</summary><p>Les deux sont possibles, par WhatsApp. Vous n'avez rien à installer de plus.</p></details>
-  <details><summary>Est-ce confidentiel ?</summary><p>Oui. Ce que vous partagez reste entre nous.</p></details>
-  <details><summary>Est-ce une thérapie ?</summary><p>Non. Le coaching de vie est un accompagnement : il ne remplace ni un médecin, ni un psychologue, ni un traitement. En cas de détresse, contactez un professionnel de santé ou le 15 (en France).</p></details>
-  <details><summary>Comment payer ?</summary><p>Par virement en euros, après l'appel découverte offert. Je vous envoie les coordonnées et la référence par WhatsApp.</p></details>
+<section class="sec cream" id="parcours"><div class="wrap path">
+  <div class="head"><span class="eyebrow rv">Mon parcours</span>
+  <h2 class="rv"><span class="ln"><span>D'où je</span></span><span class="ln"><span><em>viens.</em></span></span></h2></div>
+  <ol>
+    <li class="rv"><div class="when">2004 à 2010<br>Montréal</div><div><h3>Psychologie et enseignement</h3><p>Des études de sciences et de psychologie au cégep Saint-Laurent, puis de psychologie et d'enseignement à l'Université de Montréal.</p></div></li>
+    <li class="rv"><div class="when">2013 à 2015</div><div><h3>Le terrain</h3><p>La vente, en face-à-face et au téléphone. Des rencontres et des échanges, tous les jours.</p></div></li>
+    <li class="rv"><div class="when">Depuis 2016<br>Jérusalem</div><div><h3>Entrepreneur</h3><p>Plusieurs entreprises créées : gestion immobilière, marketing digital, puis un studio d'intelligence artificielle.</p></div></li>
+    <li class="rv"><div class="when">Aujourd'hui</div><div><h3>J'accompagne</h3><p>Celles et ceux qui traversent une période de doute, en français, en anglais ou en hébreu.</p></div></li>
+  </ol>
 </div></section>
 
-<section class="block end"><div class="wrap">
-  <h2>Faites le premier pas.</h2>
-  <p>Un message suffit. Je vous réponds pour fixer votre appel découverte offert.</p>
-  <a class="wa js-wa" href="https://wa.me/972584921492">M'écrire sur WhatsApp</a>
+<section class="sec dark"><div class="wrap">
+  <div class="head"><span class="eyebrow rv">Ma façon de faire</span>
+  <h2 class="rv"><span class="ln"><span>Trois façons</span></span><span class="ln"><span><em>d'avancer.</em></span></span></h2></div>
+  <div class="how">
+    <div class="rv"><i class="rule"></i><h3>Franc, <em>avec douceur</em></h3><p>Je dis les choses clairement, en m'adaptant à la sensibilité de chacun.</p></div>
+    <div class="rv" style="--d:.12s"><i class="rule"></i><h3>La confiance <em>et la joie</em></h3><p>On avance avec confiance et avec joie, plutôt qu'avec la peur et la culpabilité.</p></div>
+    <div class="rv" style="--d:.24s"><i class="rule"></i><h3>Du <em>concret</em></h3><p>Chaque séance se termine par des actions simples, à faire dès le lendemain.</p></div>
+  </div>
 </div></section>
+
+<section class="sec" id="tarifs"><div class="wrap prices">
+  <div class="head"><span class="eyebrow rv">Tarifs</span>
+  <h2 class="rv"><span class="ln"><span>Des prix</span></span><span class="ln"><span><em>clairs.</em></span></span></h2>
+  <p class="pay rv">Paiement par virement bancaire en euros. Je vous envoie les coordonnées après l'appel découverte, avec la référence à indiquer.</p></div>
+  <div>
+    <div class="offer rv"><h3>Appel découverte</h3><p>15 minutes pour faire connaissance</p><div class="pr">Offert</div></div>
+    <div class="offer rv"><h3>Séance individuelle</h3><p>1 heure, en visio ou par téléphone</p><div class="pr">60&nbsp;€</div></div>
+    <div class="offer offer--main rv"><span class="eyebrow">Pour avancer en un mois</span><h3>Accompagnement</h3><p>4 séances, une par semaine pendant un mois</p><div class="pr">220&nbsp;€</div></div>
+  </div>
+</div></section>
+
+<section class="sec cream" id="questions"><div class="wrap faq">
+  <div class="head"><span class="eyebrow rv">Questions</span>
+  <h2 class="rv"><span class="ln"><span>Ce que l'on</span></span><span class="ln"><span><em>me demande.</em></span></span></h2></div>
+  <div>
+    <details><summary>Comment se passe une séance ?<i aria-hidden="true"></i></summary><p>Vous me parlez de ce qui vous occupe. J'écoute, je pose les bonnes questions, et je vous aide à y voir clair. Vous repartez avec quelques actions concrètes.</p></details>
+    <details><summary>Dans quelle langue ?<i aria-hidden="true"></i></summary><p>En français, en anglais ou en hébreu, comme vous préférez.</p></details>
+    <details><summary>En visio ou par téléphone ?<i aria-hidden="true"></i></summary><p>Les deux sont possibles, par WhatsApp. Vous n'avez rien à installer de plus.</p></details>
+    <details><summary>Est-ce confidentiel ?<i aria-hidden="true"></i></summary><p>Oui. Ce que vous partagez reste entre nous.</p></details>
+    <details><summary>Est-ce une thérapie ?<i aria-hidden="true"></i></summary><p>Non. Le coaching de vie est un accompagnement : il ne remplace ni un médecin, ni un psychologue, ni un traitement. En cas de détresse, contactez un professionnel de santé ou le 15 (en France).</p></details>
+    <details><summary>Comment payer ?<i aria-hidden="true"></i></summary><p>Par virement en euros, après l'appel découverte offert. Je vous envoie les coordonnées et la référence par WhatsApp.</p></details>
+  </div>
+</div></section>
+
+<section class="end" id="fin">
+  <div class="quote__bg" data-par="0.1" id="ebg"></div>
+  <div class="wrap">
+    <h2 class="rv"><span class="ln"><span>Faites le</span></span><span class="ln"><span><em>premier pas.</em></span></span></h2>
+    <p class="rv" style="--d:.15s">Un message suffit. Je vous réponds pour fixer votre appel découverte offert.</p>
+    <a class="btn btn--gold js-wa rv" style="--d:.3s" href="https://wa.me/972584921492"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>M'écrire sur WhatsApp<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
 </main>
-<div class="stickycta" id="stickycta"><a class="wa js-wa" href="https://wa.me/972584921492">Réserver mon appel offert</a></div>
+
+<div class="sticky" id="sticky"><a class="btn btn--gold js-wa" href="https://wa.me/972584921492">Réserver mon appel offert<svg class="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
 
 <footer><div class="wrap">
   <p>David Amor, coach de vie à Jérusalem. Séances en visio ou par téléphone.</p>
@@ -282,19 +391,97 @@ footer p+p{margin-top:6px}
 
 <script>
 (function(){
-  var ref = '';
-  try { ref = new URLSearchParams(location.search).get('ref') || ''; } catch(e) {}
-  ref = ref.replace(/[^\w-]/g, '').slice(0, 30).toLowerCase();
-  try { if (ref) localStorage.setItem('ref', ref); else ref = localStorage.getItem('ref') || ''; } catch(e) {}
-  var who = ref ? ' (de la part de ' + ref.charAt(0).toUpperCase() + ref.slice(1).split('-')[0] + ')' : '';
-  var msg = 'Bonjour David, j\'ai vu votre page de coach de vie' + who + '. J\'aimerais réserver mon appel découverte offert.';
-  var url = 'https://wa.me/972584921492?text=' + encodeURIComponent(msg);
-  document.querySelectorAll('.js-wa').forEach(function(a){ a.href = url; a.target = '_blank'; a.rel = 'noopener'; });
-  if (ref) { var b = document.getElementById('refbadge'); b.textContent = 'Recommandé par ' + ref.charAt(0).toUpperCase() + ref.slice(1).split('-')[0]; b.hidden = false; }
-  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' }) : null;
-  document.querySelectorAll('.rv').forEach(function(el){ io ? io.observe(el) : el.classList.add('in'); });
-  var sc = document.getElementById('stickycta'), hero = document.querySelector('.hero'), end = document.querySelector('.end');
-  addEventListener('scroll', function(){ var y = scrollY, h = hero.offsetHeight, e = end.getBoundingClientRect().top < innerHeight; sc.classList.toggle('on', y > h * .8 && !e); }, { passive: true });
+  var $=function(s){return document.querySelector(s)},$$=function(s){return [].slice.call(document.querySelectorAll(s))};
+  var clamp=function(v,a,b){return Math.max(a,Math.min(b,v))},reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* « de la part de » : lien WhatsApp pré-rempli + attribution */
+  var ref='';
+  try{ref=new URLSearchParams(location.search).get('ref')||''}catch(e){}
+  ref=ref.replace(/[^\w-]/g,'').slice(0,30).toLowerCase();
+  try{if(ref)localStorage.setItem('ref',ref);else ref=localStorage.getItem('ref')||''}catch(e){}
+  var nom=ref?ref.charAt(0).toUpperCase()+ref.slice(1).split('-')[0]:'';
+  var msg='Bonjour David, j\'ai vu votre page de coach de vie'+(nom?' (de la part de '+nom+')':'')+'. J\'aimerais réserver mon appel découverte offert.';
+  var url='https://wa.me/972584921492?text='+encodeURIComponent(msg);
+  $$('.js-wa').forEach(function(a){a.href=url;a.target='_blank';a.rel='noopener'});
+  if(nom)$('#refbadge').textContent='Recommandé par '+nom+' · David Amor · Jérusalem';
+
+  /* apparitions */
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -9% 0px'}):null;
+  $$('.rv').forEach(function(el){io?io.observe(el):el.classList.add('in')});
+  setTimeout(function(){$('#c1').classList.add('in')},60);
+
+  /* héros : séquence d'images pilotée par le défilement */
+  var hero=$('#top'),cv=$('#seq'),cx=cv.getContext('2d'),N=+hero.dataset.n,mq=matchMedia('(max-width:760px)'),
+      imgs=[],ok=[],started=false,cur=0,tgt=0,p=0,W=0,H=0,visible=true;
+  var c1=$('#c1'),c2=$('#c2'),hint=$('#hint');
+  function src(i){return 'seq/'+(mq.matches?'m':'d')+'/f'+String(i).padStart(3,'0')+'.webp'}
+  function size(){var d=Math.min(devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;cv.width=Math.round(W*d);cv.height=Math.round(H*d);draw(true)}
+  function nearest(i){i=Math.round(i);for(var k=0;k<N;k++){if(ok[i-k])return i-k;if(ok[i+k])return i+k}return -1}
+  var lastDrawn=-1;
+  function draw(force){
+    var i=nearest(cur);if(i<0)return;if(i===lastDrawn&&!force)return;
+    var im=imgs[i],cw=cv.width,ch=cv.height,s=Math.max(cw/im.naturalWidth,ch/im.naturalHeight),w=im.naturalWidth*s,h=im.naturalHeight*s;
+    cx.drawImage(im,(cw-w)/2,(ch-h)*(mq.matches?.5:.62),w,h);lastDrawn=i;
+  }
+  function load(){
+    if(started)return;started=true;
+    var order=[],seen={};
+    [8,4,2,1].forEach(function(st){for(var i=0;i<N;i+=st){if(!seen[i]){seen[i]=1;order.push(i)}}});
+    if(!seen[N-1])order.push(N-1);
+    var q=order.slice(),act=0;
+    (function pump(){
+      while(act<4&&q.length){(function(i){act++;var im=new Image();im.decoding='async';im.onload=function(){imgs[i]=im;ok[i]=1;act--;draw();pump()};im.onerror=function(){act--;pump()};im.src=src(i)})(q.shift())}
+    })();
+  }
+  ['scroll','touchstart','pointerdown','keydown','wheel'].forEach(function(t){addEventListener(t,load,{once:true,passive:true})});
+  if('IntersectionObserver' in window)new IntersectionObserver(function(e){visible=e[0].isIntersecting}).observe(hero);
+  mq.addEventListener&&mq.addEventListener('change',function(){imgs=[];ok=[];started=false;lastDrawn=-1;if(scrollY>20)load()});
+  addEventListener('resize',size);
+
+  var qbg=$('#qbg'),ebg=$('#ebg');
+  qbg.style.backgroundImage="url(img/aube-"+(mq.matches?'m':'d')+".webp)";ebg.style.backgroundImage=qbg.style.backgroundImage;
+  var track=$('#track'),bar=$('#bar'),nav=$('#nav'),sticky=$('#sticky'),prog=$('#prog'),endEl=$('#fin');
+  var cursor=$('#cur'),mx=0,my=0,cxp=0,cyp=0;
+
+  function ease(t){return t*t*(3-2*t)}
+  function frame(){
+    var sy=scrollY,r=hero.getBoundingClientRect(),span=hero.offsetHeight-innerHeight;
+    p=reduce?1:clamp(-r.top/span,0,1);
+    if(visible){
+      tgt=p*(N-1);cur+=(tgt-cur)*.14;if(Math.abs(tgt-cur)<.01)cur=tgt;draw();
+      var a=1-ease(clamp((p-.12)/.3,0,1)),b=ease(clamp((p-.58)/.2,0,1));
+      c1.style.opacity=a;c1.style.transform='translate3d(0,'+(-(1-a)*50)+'px,0)';
+      c2.style.opacity=b;c2.style.transform='translate3d(0,'+((1-b)*40)+'px,0)';c2.classList.toggle('on',b>.6);
+      hint.style.opacity=clamp(1-p*8,0,1);
+    }
+    var heroBottom=r.bottom;
+    nav.classList.toggle('light',heroBottom<80);
+    var e=endEl.getBoundingClientRect().top<innerHeight*.55;
+    sticky.classList.toggle('on',heroBottom<innerHeight*.5&&!e);
+    prog.style.transform='scaleX('+clamp(sy/(document.documentElement.scrollHeight-innerHeight),0,1)+')';
+    if(track&&bar){var m=track.scrollWidth-track.clientWidth;bar.style.transform='scaleX('+(.25+.75*(m>0?track.scrollLeft/m:1))+')'}
+    if(!reduce&&innerWidth>760){$$('[data-par]').forEach(function(el){var q=el.parentElement.getBoundingClientRect();if(q.bottom>0&&q.top<innerHeight){el.style.transform='translate3d(0,'+((q.top+q.height/2-innerHeight/2)*-el.dataset.par)+'px,0)'}})}
+    if(cursor.classList.contains('on')){cxp+=(mx-cxp)*.2;cyp+=(my-cyp)*.2;cursor.style.transform='translate3d('+cxp+'px,'+cyp+'px,0)'}
+    requestAnimationFrame(frame);
+  }
+  var im0=$('#seq0');
+  function first(){size();if(!reduce)cur=0;draw(true);im0.style.visibility='hidden'}
+  (function waitFirst(){var f=new Image();f.onload=function(){imgs[0]=f;ok[0]=1;first()};f.src=src(0)})();
+  if(reduce){load()}
+  size();requestAnimationFrame(frame);
+
+  /* vidéo : un geste lance la lecture */
+  var pl=$('#player');
+  $('#play').addEventListener('click',function(){
+    var v=$$('#player video').filter(function(x){return x.offsetParent})[0];if(!v)return;
+    pl.classList.add('go');v.preload='auto';v.play().catch(function(){});
+  });
+
+  /* curseur (souris seulement) */
+  if(matchMedia('(pointer:fine)').matches){
+    addEventListener('pointermove',function(e){mx=e.clientX;my=e.clientY;if(!cursor.classList.contains('on')){cxp=mx;cyp=my;cursor.classList.add('on')}},{passive:true});
+    document.addEventListener('pointerover',function(e){cursor.classList.toggle('big',!!e.target.closest('a,button,summary,.card,.track'))});
+  }
 })();
 </script>
 </body>

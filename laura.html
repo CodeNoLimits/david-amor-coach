@@ -2,57 +2,127 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>Kit de partage Laura</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#0a1630">
+<title>Kit de partage · Laura</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a1630'/%3E%3Ccircle cx='32' cy='38' r='13' fill='%23ecca84'/%3E%3Cpath d='M8 44h48' stroke='%23c9993a' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/BricolageGrotesque-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/InstrumentSerif-italic.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js")</script>
 <style>
-:root{--night:#0f2747;--ink:#0f2747;--text:#0f2747;--muted:#41536b;--sand:#f2f7fd;--card:#ffffff;--line:#d6e3f2;--gold:#9a7426;--wa:#128c4a}
+@font-face{font-family:"Bricolage";src:url(fonts/BricolageGrotesque-normal.woff2) format("woff2");font-weight:400 800;font-display:swap}
+@font-face{font-family:"Instrument";src:url(fonts/InstrumentSerif-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument";src:url(fonts/InstrumentSerif-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Inter";src:url(fonts/Inter-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  --night:#0a1630;--ink:#0e1b34;--ink-2:#46526a;--cream:#f6f0e6;--paper:#fbf8f2;--line:#e2d9c8;
+  --gold:#c9993a;--gold-l:#ecca84;--gold-d:#8a6420;
+  --sans:"Bricolage","Helvetica Neue",Arial,sans-serif;--serif:"Instrument",Georgia,serif;--body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
 *{box-sizing:border-box;margin:0}
-body{font:400 17px/1.65 "Source Serif 4",Georgia,serif;color:var(--text);background:var(--sand)}
-h1,h2{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;color:var(--ink);line-height:1.2}
-.wrap{max-width:760px;margin:0 auto;padding:36px 16px 80px}
-h1{font-size:34px;margin:6px 0 10px}
-h2{font-size:24px;margin:40px 0 12px}
-.kicker{font:500 17px "Bricolage Grotesque",sans-serif;color:var(--muted)}
-p.lead{color:var(--muted)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:12px}
-.card h3{font:700 18px "Bricolage Grotesque",sans-serif;color:var(--ink);margin-bottom:8px}
-.txt{white-space:pre-wrap;font-size:16px}
-button,.dl{display:inline-flex;align-items:center;gap:8px;margin-top:12px;background:var(--night);color:#fff;border:0;border-radius:999px;padding:10px 18px;font:600 15px "Bricolage Grotesque",sans-serif;cursor:pointer;text-decoration:none}
-button.ok{background:var(--wa)}
-button:focus-visible,.dl:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.link{font:600 17px ui-monospace,Menlo,monospace;word-break:break-all;color:var(--ink)}
-.vids{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font:400 17px/1.65 var(--body);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,video{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--sans);font-weight:700;letter-spacing:-.03em;line-height:1.02}
+em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.wrap{width:min(1040px,100% - 40px);margin-inline:auto}
+.eyebrow{font:600 12px/1 var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--gold-d)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:4px}
+
+/* en-tête : la même aube que la page */
+.top{position:relative;color:#fff;background:var(--night) url(img/aube-d.webp) 60% 40%/cover;padding:clamp(70px,12vw,150px) 0 clamp(60px,9vw,110px);overflow:hidden}
+@media(max-width:620px){.top{background-image:url(img/aube-m.webp);background-position:50% 50%}}
+.top::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,14,34,.82),rgba(6,14,34,.4) 65%,rgba(6,14,34,.15)),linear-gradient(0deg,rgba(6,14,34,.6),transparent 50%)}
+.top .wrap{position:relative}
+.top .eyebrow{color:var(--gold-l);display:block;margin-bottom:22px}
+.top h1{font-size:clamp(52px,10vw,148px);letter-spacing:-.05em;line-height:.92}
+.top h1 em{display:block;background:linear-gradient(100deg,var(--gold-l),#f7e6bd 45%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+.top p{margin-top:26px;max-width:34em;font-size:clamp(17px,1.5vw,20px);color:rgba(255,255,255,.88)}
+.priv{display:inline-flex;align-items:center;gap:10px;margin-top:30px;font:600 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.priv::before{content:"";width:28px;height:1px;background:var(--gold-l)}
+
+section.k{padding:clamp(56px,8vw,100px) 0;border-bottom:1px solid var(--line)}
+section.k:last-of-type{border-bottom:0}
+.k .head{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;align-items:end;margin-bottom:34px}
+.k .head>span{grid-row:1/3;font:400 clamp(64px,9vw,120px)/.8 var(--serif);color:var(--gold)}
+.k h2{font-size:clamp(32px,4.6vw,60px);letter-spacing:-.04em}
+.k .sub{color:var(--ink-2);max-width:40em}
+
+.box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:clamp(22px,3vw,34px);box-shadow:0 24px 50px -36px rgba(14,27,52,.4)}
+.box h3{font-size:clamp(20px,2.2vw,26px);margin-bottom:14px;letter-spacing:-.025em}
+.link{font:600 clamp(15px,2vw,21px)/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-all;color:var(--ink);padding:16px 18px;border-radius:8px;background:var(--cream);border:1px dashed var(--gold)}
+.note{margin-top:16px;color:var(--ink-2);font-size:15.5px;max-width:42em}
+.txt{white-space:pre-wrap;font-size:16.5px;color:var(--ink)}
+
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:48px;margin-top:20px;padding:0 22px;border-radius:10px;border:1px solid transparent;font:600 14.5px/1 var(--body);text-decoration:none;cursor:pointer;background:var(--ink);color:var(--cream);transition:transform .35s var(--ease),background .3s,box-shadow .35s}
+.btn:hover{transform:translateY(-2px);background:#16294d;box-shadow:0 14px 30px -14px rgba(14,27,52,.6)}
+.btn svg{width:17px;height:17px;flex:none}
+.btn.ok{background:var(--gold);color:#1a1405}
+.btn--line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn--line:hover{background:var(--ink);color:var(--cream)}
+
+.vids{display:grid;gap:22px;grid-template-columns:repeat(3,1fr)}
+@media(max-width:860px){.vids{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.vids{grid-template-columns:1fr}}
-.vids video{width:100%;border-radius:12px;background:var(--night);display:block}
-ul{padding-left:20px}
-li+li{margin-top:6px}
+.vid{display:flex;flex-direction:column}
+.vid video{width:100%;border-radius:8px;background:var(--night);aspect-ratio:9/16;object-fit:cover}
+.vid.wide{grid-column:1/-1}
+.vid.wide video{aspect-ratio:16/9}
+.vid h3{margin:16px 0 4px;font-size:20px}
+.vid p{font-size:14.5px;color:var(--ink-2)}
+.vid .btn{margin-top:auto;align-self:flex-start}
+.vid p+.btn{margin-top:14px}
+
+.texts{display:grid;gap:22px}
+@media(min-width:900px){.texts{grid-template-columns:1fr 1fr}.texts .box:first-child{grid-column:1/-1}}
+.texts .box{display:flex;flex-direction:column}
+.texts .box .btn{align-self:flex-start;margin-top:auto}
+.texts .txt{margin-bottom:6px}
+.tips{list-style:none;padding:0}
+.tips li{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:16px 0;border-top:1px solid var(--line)}
+.tips li:first-child{border-top:0;padding-top:0}
+.tips li::before{content:"";width:10px;height:10px;margin-top:9px;border-radius:50%;background:var(--gold)}
+footer{padding:34px 0 46px;background:var(--night);color:rgba(255,255,255,.62);font-size:14px}
+.js .rv{opacity:0;transform:translateY(22px)}
+.rv.in{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .8s var(--ease)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none}}
 </style>
 </head>
-<body><div style="background:linear-gradient(90deg,#c2e0fe,#acd3fd 55%,#8cbcfb);height:10px"></div><div class="wrap">
-<div class="kicker">Ton kit de partage</div>
-<h1>Bonjour Laura 👋</h1>
-<p class="lead">Tout ce qu'il faut pour partager la page de David : ton lien personnel, les vidéos à publier et des textes prêts à copier. Adapte-les avec tes mots, c'est toujours mieux.</p>
+<body>
+<header class="top">
+  <div class="wrap">
+    <span class="eyebrow">Ton kit de partage</span>
+    <h1>Bonjour<em>Laura.</em></h1>
+    <p>Tout ce qu'il faut pour partager la page de David : ton lien personnel, les vidéos à publier et des textes prêts à copier. Adapte-les avec tes mots, c'est toujours mieux.</p>
+    <span class="priv">Page privée · ne pas diffuser</span>
+  </div>
+</header>
 
-<h2>1. Ton lien personnel</h2>
-<div class="card">
-  <p class="link" id="mylink">…</p>
-  <button data-copy="mylink">Copier mon lien</button>
-  <p style="margin-top:12px;color:var(--muted);font-size:15px">Quand quelqu'un passe par ce lien et écrit à David, le message WhatsApp indique automatiquement « de la part de Laura ». C'est comme ça qu'on sait qui vient de ta part.</p>
-</div>
+<main>
+<section class="k"><div class="wrap">
+  <div class="head rv"><span>1</span><h2>Ton lien personnel</h2><p class="sub">Un seul lien à partager partout.</p></div>
+  <div class="box rv">
+    <p class="link" id="mylink">…</p>
+    <button class="btn" type="button" data-copy="mylink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copier mon lien</span></button>
+    <p class="note">Quand quelqu'un passe par ce lien et écrit à David, le message WhatsApp indique automatiquement « de la part de Laura ». C'est comme ça qu'on sait qui vient de ta part.</p>
+  </div>
+</div></section>
 
-<h2>2. Les vidéos à publier</h2>
-<div class="vids">
-  <div class="card"><h3>Présentation · format vertical</h3><video controls playsinline preload="none" poster="videos/presentation-9x16.jpg" src="videos/presentation-9x16.mp4"></video><a class="dl" href="videos/presentation-9x16.mp4" download>Télécharger</a><p style="font-size:14px;color:var(--muted);margin-top:8px">Stories, Reels, statut WhatsApp, TikTok.</p></div>
-  <div class="card"><h3>« Vous vous reconnaissez ? »</h3><video controls playsinline preload="none" poster="videos/reel-reconnais-9x16.jpg" src="videos/reel-reconnais-9x16.mp4"></video><a class="dl" href="videos/reel-reconnais-9x16.mp4" download>Télécharger</a><p style="font-size:14px;color:var(--muted);margin-top:8px">Vidéo courte, idéale en Reel.</p></div>
-  <div class="card"><h3>Présentation · format horizontal</h3><video controls playsinline preload="none" poster="videos/presentation-16x9.jpg" src="videos/presentation-16x9.mp4"></video><a class="dl" href="videos/presentation-16x9.mp4" download>Télécharger</a><p style="font-size:14px;color:var(--muted);margin-top:8px">Facebook, groupes, YouTube.</p></div>
-</div>
+<section class="k"><div class="wrap">
+  <div class="head rv"><span>2</span><h2>Les vidéos à publier</h2><p class="sub">À télécharger et à publier telles quelles.</p></div>
+  <div class="vids">
+    <div class="vid box rv"><video controls playsinline preload="none" poster="videos/presentation-9x16.jpg" src="videos/presentation-9x16.mp4"></video><h3>Présentation · format vertical</h3><p>Stories, Reels, statut WhatsApp, TikTok.</p><a class="btn" href="videos/presentation-9x16.mp4" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12m0 0 5-5m-5 5-5-5M5 20h14"/></svg>Télécharger</a></div>
+    <div class="vid box rv" style="transition-delay:.1s"><video controls playsinline preload="none" poster="videos/reel-reconnais-9x16.jpg" src="videos/reel-reconnais-9x16.mp4"></video><h3>« Vous vous reconnaissez ? »</h3><p>Vidéo courte, idéale en Reel.</p><a class="btn" href="videos/reel-reconnais-9x16.mp4" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12m0 0 5-5m-5 5-5-5M5 20h14"/></svg>Télécharger</a></div>
+    <div class="vid box rv" style="transition-delay:.2s"><video controls playsinline preload="none" poster="videos/presentation-16x9.jpg" src="videos/presentation-16x9.mp4" style="aspect-ratio:9/16;object-fit:contain"></video><h3>Présentation · format horizontal</h3><p>Facebook, groupes, YouTube.</p><a class="btn" href="videos/presentation-16x9.mp4" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12m0 0 5-5m-5 5-5-5M5 20h14"/></svg>Télécharger</a></div>
+  </div>
+</div></section>
 
-<h2>3. Textes prêts à copier</h2>
-<div class="card"><h3>Post Instagram / Facebook</h3>
+<section class="k"><div class="wrap">
+  <div class="head rv"><span>3</span><h2>Textes prêts à copier</h2><p class="sub">Le lien est déjà glissé dans chaque texte.</p></div>
+  <div class="texts">
+    <div class="box rv"><h3>Post Instagram / Facebook</h3>
 <p class="txt" id="t1">Vous traversez une période où tout se mélange ? La fatigue, les doutes, une décision qu'on repousse…
 
 Je connais David depuis longtemps : c'est quelqu'un qui écoute vraiment, qui dit les choses franchement mais avec beaucoup de bienveillance, et qui donne des conseils concrets.
@@ -60,29 +130,34 @@ Je connais David depuis longtemps : c'est quelqu'un qui écoute vraiment, qui di
 Il propose désormais des séances de coaching de vie, en français, en visio ou par téléphone. Le premier appel de 15 minutes est offert.
 
 👉 Toutes les infos ici : {LIEN}</p>
-<button data-copy="t1">Copier le texte</button></div>
+<button class="btn" type="button" data-copy="t1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copier le texte</span></button></div>
 
-<div class="card"><h3>Statut WhatsApp / story</h3>
+    <div class="box rv"><h3>Statut WhatsApp / story</h3>
 <p class="txt" id="t2">Besoin d'un regard clair et bienveillant ? Premier appel de coaching offert avec David 👇
 {LIEN}</p>
-<button data-copy="t2">Copier le texte</button></div>
+<button class="btn" type="button" data-copy="t2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copier le texte</span></button></div>
 
-<div class="card"><h3>Message privé à une amie</h3>
+    <div class="box rv" style="transition-delay:.08s"><h3>Message privé à une amie</h3>
 <p class="txt" id="t3">Coucou, je pensais à toi. Je connais quelqu'un de très bien qui fait du coaching de vie, David. Il écoute vraiment et il a de très bons conseils. Le premier appel est offert, sans engagement. Si ça te parle, regarde sa page : {LIEN}</p>
-<button data-copy="t3">Copier le texte</button></div>
+<button class="btn" type="button" data-copy="t3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copier le texte</span></button></div>
 
-<div class="card"><h3>Groupe de discussion</h3>
+    <div class="box rv" style="transition-delay:.16s"><h3>Groupe de discussion</h3>
 <p class="txt" id="t4">Bonjour à toutes et à tous, je partage une belle adresse : David propose du coaching de vie en français (visio ou téléphone) pour les périodes de stress, les questions de famille, de couple ou les décisions difficiles. Premier appel de 15 minutes offert. {LIEN}</p>
-<button data-copy="t4">Copier le texte</button></div>
+<button class="btn" type="button" data-copy="t4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copier le texte</span></button></div>
+  </div>
+</div></section>
 
-<h2>4. Quelques conseils</h2>
-<div class="card"><ul>
-  <li>Un post par semaine suffit, en alternant les deux vidéos.</li>
-  <li>En story, ajoute le lien avec l'autocollant « Lien ».</li>
-  <li>Dans les groupes, vérifie que les règles autorisent ce genre de partage.</li>
-  <li>Si on te demande comment payer : virement en euros, David envoie les coordonnées après l'appel découverte.</li>
-</ul></div>
-</div>
+<section class="k"><div class="wrap">
+  <div class="head rv"><span>4</span><h2>Quelques conseils</h2><p class="sub">Simple et régulier.</p></div>
+  <div class="box rv"><ul class="tips">
+    <li>Un post par semaine suffit, en alternant les deux vidéos.</li>
+    <li>En story, ajoute le lien avec l'autocollant « Lien ».</li>
+    <li>Dans les groupes, vérifie que les règles autorisent ce genre de partage.</li>
+    <li>Si on te demande comment payer : virement en euros, David envoie les coordonnées après l'appel découverte.</li>
+  </ul></div>
+</div></section>
+</main>
+<footer><div class="wrap">Kit privé de partage · à ne pas diffuser.</div></footer>
 
 <script>
 (function(){
@@ -90,13 +165,16 @@ Il propose désormais des séances de coaching de vie, en français, en visio ou
   document.getElementById('mylink').textContent = link;
   document.querySelectorAll('.txt').forEach(function(p){ p.textContent = p.textContent.replace('{LIEN}', link); });
   document.querySelectorAll('button[data-copy]').forEach(function(b){
+    var lab = b.querySelector('span');
     b.addEventListener('click', function(){
-      var t = document.getElementById(b.dataset.copy).textContent, label = b.textContent;
-      var done = function(){ b.textContent = 'Copié ✓'; b.classList.add('ok'); setTimeout(function(){ b.textContent = label; b.classList.remove('ok'); }, 1800); };
+      var t = document.getElementById(b.dataset.copy).textContent, label = lab.textContent;
+      var done = function(){ lab.textContent = 'Copié ✓'; b.classList.add('ok'); setTimeout(function(){ lab.textContent = label; b.classList.remove('ok'); }, 1800); };
       if (navigator.clipboard) navigator.clipboard.writeText(t).then(done, function(){ prompt('Copie ce texte :', t); });
       else prompt('Copie ce texte :', t);
     });
   });
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' }) : null;
+  document.querySelectorAll('.rv').forEach(function(el){ io ? io.observe(el) : el.classList.add('in'); });
 })();
 </script>
 </body>
