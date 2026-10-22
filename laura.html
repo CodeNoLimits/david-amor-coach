@@ -45,8 +45,8 @@ em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.0
 
 section.k{padding:clamp(56px,8vw,100px) 0;border-bottom:1px solid var(--line)}
 section.k:last-of-type{border-bottom:0}
-.k .head{display:grid;grid-template-columns:clamp(60px,8vw,96px) 1fr;gap:6px 22px;align-items:end;margin-bottom:34px}
-.k .head>span{grid-row:1/3;font:400 clamp(64px,9vw,120px)/.8 var(--serif);color:var(--gold)}
+.k .head{display:grid;grid-template-columns:clamp(60px,8vw,96px) 1fr;gap:6px 22px;align-items:center;margin-bottom:34px}
+.k .head>span{grid-row:1/3;font:400 clamp(64px,9vw,120px)/1 var(--serif);color:var(--gold)}
 .k h2{font-size:clamp(32px,4.6vw,60px);letter-spacing:-.022em}
 .k .sub{color:var(--ink-2);max-width:40em}
 
@@ -75,6 +75,8 @@ section.k:last-of-type{border-bottom:0}
 .pv .go:hover b{transform:scale(1.08)}
 .pv .go svg{width:18px;height:18px;margin-left:2px}
 .pv.on .go{opacity:0;pointer-events:none}
+.pv::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:#f1ecdd;pointer-events:none}
+.pv.on::after{display:none}
 .vid h3{margin:16px 0 4px;font-size:20px}
 .vid p{font-size:14.5px;color:var(--ink-2)}
 .vid .btn{margin-top:auto;align-self:flex-start}
