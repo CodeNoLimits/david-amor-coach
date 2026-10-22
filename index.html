@@ -76,6 +76,8 @@ em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.0
 .hero__copy,.hero__two{position:absolute;left:max(20px,calc((100vw - 1200px)/2));right:20px;bottom:clamp(96px,15svh,150px);max-width:min(760px,100% - 20px);will-change:transform,opacity}
 .hero__two{opacity:0;pointer-events:none;bottom:clamp(110px,18svh,170px)}
 .hero__two.on{pointer-events:auto}
+.hero__two::before{content:"";position:absolute;inset:-60px -40px -30px -40px;z-index:-1;background:radial-gradient(70% 80% at 30% 50%,rgba(6,14,34,.62),transparent 75%)}
+.hero__two h2 em{text-shadow:0 2px 22px rgba(5,10,30,.7)}
 .hero .eyebrow{display:block;margin-bottom:22px}
 @media(max-width:760px){.hero{height:235svh}}
 @media(max-width:520px){.hero .eyebrow{font-size:10.5px;letter-spacing:.14em;white-space:nowrap}.hero__langs{line-height:1.5}}
